@@ -459,14 +459,3 @@ class LinkedListIterator:
             item = self._curr.item
             self._curr = self._curr.next
             return item
-
-
-if __name__ == '__main__':
-    lst = DoublyLinkedList([1,4,3,10,5])
-    print(lst)
-    lst.invert()
-    print(lst)
-    lst.append(1000)
-    print(lst)
-    print(lst.pop(0))
-    print(lst)
