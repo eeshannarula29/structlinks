@@ -13,12 +13,10 @@ class _Node:
 
 class LinkedList:
 
-    def __init__(self, items: Optional[Sequence] = None) -> None:
+    def __init__(self, items: Optional[Sequence] = None, first: Optional[_Node] = None) -> None:
         """Initialize a linked list.
-
-        :param items: a initial sequential for the linked list.
         """
-        self._first = None
+        self._first = first
         self._length = 0
 
         if items:
@@ -248,7 +246,7 @@ class LinkedList:
         return items_so_far
 
     def copy(self) -> LinkedList:
-        return LinkedList(self.to_list())
+        return LinkedList(first=self._first)
 
     def extend(self, other: LinkedList) -> None:
         """Extend self by other linked list"""
