@@ -267,6 +267,12 @@ class LinkedList:
 
         return copy
 
+    def sort(self, reverse: Optional[bool] = False):
+        lst = self.to_list()
+        lst.sort(reverse=reverse)
+        copy = LinkedList(lst)
+        self._first = copy._first
+
     def __iter__(self) -> LinkedListIterator:
         """Return an iterator for this linked list.
         """
