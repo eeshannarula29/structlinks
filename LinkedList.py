@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Sequence, Union
 
 
 @dataclass
@@ -51,24 +51,49 @@ class LinkedList:
 
         return False
 
-    def __getitem__(self, i: int) -> Any:
+    def __getitem__(self, i: Union[int, slice]) -> Union[Any, LinkedList]:
         """Return the item stored at index i in this linked list.
         """
 
-        if i < 0:
-            i = self._length + i
+        if isinstance(i, int):
 
-        curr = self._first
-        curr_index = 0
+            if i < 0:
+                i = self._length + i
 
-        while curr is not None and curr_index != i:
-            curr = curr.next
-            curr_index += 1
+            curr = self._first
+            curr_index = 0
 
-        if curr is None:
-            raise IndexError
+            while curr is not None and curr_index != i:
+                curr = curr.next
+                curr_index += 1
+
+            if curr is None:
+                raise IndexError
+            else:
+                return curr.item
         else:
-            return curr.item
+            start = i.start
+            stop = i.stop
+
+            if start is None:
+                start = 0
+            if stop is None:
+                stop = self._length
+
+            if not (0 <= start <= stop <= len(self)):
+                raise IndexError
+            else:
+                new_linked_list = LinkedList([])
+                index = 0
+
+                for item in self:
+                    if start <= index < stop:
+                        new_linked_list.append(item)
+                    elif index > stop:
+                        break
+                    index += 1
+
+                return new_linked_list
 
     def __len__(self) -> int:
         """Return the number of elements in this linked list.
