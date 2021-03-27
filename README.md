@@ -5,11 +5,11 @@ and may more. You can even visualize them. It also can be used to sort and searc
 
 ## Current DataTypes
 
-- [Linked Lists](#Linked Lists)
-- [Doubly Linked Lists](#Doubly Linked Lists)
-- [Binary Search Trees](#Binary Search Trees)
+- [Linked Lists](#LinkedLists)
+- [Doubly Linked Lists](#DoublyLinkedLists)
+- [Binary Search Trees](#BinarySearchTrees)
 
-## Linked Lists
+## LinkedLists
 ### Initializing a Linked list
 You can initialize a linked list by simply creating a linked list object
 and optionally pass in a list object witch would contain the initial list 
@@ -119,7 +119,7 @@ for item in lst:
 # 5
 ```
 
-## Doubly Linked Lists
+## DoublyLinkedLists
 
 ### Initializing a Doubly Linked list
 You can initialize a Doubly linked list by simply creating a Doubly linked list object
@@ -230,7 +230,7 @@ for item in lst:
 # 5
 ```
 
-## Binary Search Trees
+## BinarySearchTrees
 
 ### Initialize a BST
 
