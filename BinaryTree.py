@@ -80,15 +80,11 @@ class BinarySearchTree:
 
     def __abs__(self) -> BinarySearchTree:
         """Return BST similar to self, but with abs values"""
-        copy = self.copy()
-        copy.map(lambda x: abs(x))
-        return copy
+        return self.map(lambda x: abs(x))
 
     def abs(self) -> BinarySearchTree:
         """Return BST similar to self, but with abs values"""
-        copy = self.copy()
-        copy.map(lambda x: abs(x))
-        return copy
+        return self.map(lambda x: abs(x))
 
     def __eq__(self, other: BinarySearchTree) -> bool:
         """Check weather two BST's ate same or not"""
@@ -96,30 +92,34 @@ class BinarySearchTree:
 
     def floor(self) -> BinarySearchTree:
         """Return BST similar to self, but with floor values"""
-        copy = self.copy()
-        copy.map(lambda x: math.floor(x))
-        return copy
+        return self.map(lambda x: math.floor(x))
 
     def ceil(self) -> BinarySearchTree:
         """Return BST similar to self, but with ceil values"""
-        copy = self.copy()
-        copy.map(lambda x: math.ceil(x))
-        return copy
+        return self.map(lambda x: math.ceil(x))
 
     def __floor__(self) -> BinarySearchTree:
         """Return BST similar to self, but with floor values"""
-        copy = self.copy()
-        copy.map(lambda x: math.floor(x))
-        return copy
+        return self.map(lambda x: math.floor(x))
 
     def __ceil__(self) -> BinarySearchTree:
         """Return BST similar to self, but with ceil values"""
+        return self.map(lambda x: math.ceil(x))
+
+    def map(self, key=Callable) -> BinarySearchTree:
+        """Map the BST to key and return mapped BST"""
         copy = self.copy()
-        copy.map(lambda x: math.ceil(x))
+
+        if not copy.is_empty():
+            copy._root = key(self._root)
+            copy.set_left_to(copy._left.map(key))
+            copy.set_right_to(self._right.map(key))
+
         return copy
 
-    def map(self, key=Callable) -> None:
+    def apply(self, key=Callable) -> None:
         """Map the BST to key"""
+
         if not self.is_empty():
             self._root = key(self._root)
             self._left.map(key)
