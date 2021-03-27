@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence, Union
+from typing import Any, Optional, Sequence, Union, Callable
+import math
 
 
 @dataclass
@@ -300,6 +301,36 @@ class LinkedList:
         """Return an iterator for this linked list.
         """
         return LinkedListIterator(self._first)
+
+    def map(self, key=Callable) -> LinkedList:
+        """Return a mapped list to key"""
+        lst = LinkedList()
+
+        curr = self._first
+
+        while curr is not None:
+            lst.append(key(curr.item))
+            curr = curr.next
+
+        return lst
+
+    def __abs__(self) -> LinkedList:
+        return self.map(lambda x: abs(x))
+
+    def abs(self) -> LinkedList:
+        return self.map(lambda x: abs(x))
+
+    def __floor__(self) -> LinkedList:
+        return self.map(lambda x: math.floor(x))
+
+    def floor(self) -> LinkedList:
+        return self.map(lambda x: math.floor(x))
+
+    def __ceil__(self) -> LinkedList:
+        return self.map(lambda x: math.ceil(x))
+
+    def ceil(self) -> LinkedList:
+        return self.map(lambda x: math.ceil(x))
 
 
 class LinkedListIterator:
