@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence, Union
+from typing import Any, Optional, Sequence, Union, Callable
+import math
 
 
 @dataclass
@@ -20,7 +21,7 @@ class DoublyLinkedList:
         """
         self._first = first
         self._last = last
-        self._length = len(items)
+        self._length = len(items) if items else 0
 
         if items:
             curr = None
@@ -440,6 +441,36 @@ class DoublyLinkedList:
 
         self._first = copy._first
         self._last = copy._last
+
+    def map(self, key=Callable) -> DoublyLinkedList:
+        """Return a mapped list to key"""
+        lst = DoublyLinkedList()
+
+        curr = self._first
+
+        while curr is not None:
+            lst.append(key(curr.item))
+            curr = curr.next
+
+        return lst
+
+    def __abs__(self) -> DoublyLinkedList:
+        return self.map(lambda x: abs(x))
+
+    def abs(self) -> DoublyLinkedList:
+        return self.map(lambda x: abs(x))
+
+    def __floor__(self) -> DoublyLinkedList:
+        return self.map(lambda x: math.floor(x))
+
+    def floor(self) -> DoublyLinkedList:
+        return self.map(lambda x: math.floor(x))
+
+    def __ceil__(self) -> DoublyLinkedList:
+        return self.map(lambda x: math.ceil(x))
+
+    def ceil(self) -> DoublyLinkedList:
+        return self.map(lambda x: math.ceil(x))
 
 
 class LinkedListIterator:
