@@ -36,13 +36,33 @@ class BinarySearchTree:
 
     @property
     def left(self) -> Any:
-        """Value of the left child of the BST"""
-        return cpy.copy(self._left._root)
+        """Return copy of left child of the BST"""
+        return self._left.copy()
 
     @property
     def right(self) -> Any:
-        """Value of the right child of the BST"""
-        return cpy.copy(self._right._root)
+        """Return copy of right child of the BST"""
+        return self._right.copy()
+
+    @property
+    def is_balanced(self) -> bool:
+
+        if self.is_empty():
+            return True
+
+        if abs(self._left.height - self._right.height) <= 1 and \
+                self._left.is_balanced and self._right.is_balanced:
+            return True
+
+        return False
+
+    @property
+    def height(self) -> int:
+        """Return the height of the tree"""
+        if self.is_empty():
+            return 0
+        else:
+            return 1 + max(self._left.height, self._right.height)
 
     def is_empty(self) -> bool:
         """Return whether this BST is empty.
