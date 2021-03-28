@@ -9,6 +9,11 @@ and may more. You can even visualize them. It also can be used to sort and searc
 - [Doubly Linked Lists](#DoublyLinkedLists)
 - [Binary Search Trees](#BinarySearchTrees)
 
+## Contribute to NetLinks
+We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please 
+check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) file 
+for further information on how you can contribute. 
+
 ## LinkedLists
 ### Initializing a Linked list
 You can initialize a linked list by simply creating a linked list object
