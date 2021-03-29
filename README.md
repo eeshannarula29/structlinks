@@ -131,12 +131,16 @@ print(bst.root) # root value
 # 4
 
 print(bst.left) # copy of left child
-# 2
-#   1
+# Output:
+#   2
+#  / 
+# 1
 
 print(bst.right) # copy of right child
-# 20
-#   10
+# Output:
+#   20
+#  / 
+# 10
 
 print(bst.height) # height of the tree
 # Output: 
