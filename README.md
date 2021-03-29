@@ -4,8 +4,10 @@ NetLinks can be used to access different DataTypes, like Linked list, Doubly Lin
 and may more. You can even visualize them. It also can be used to sort and search items in these data types.
 
 I should also mention that much of the Basic data class structure is take from the
-University of Toronto's CSC111 course. I and other contributors are students  
-at University of Toronto, and currently taking CSC111.
+University of Toronto's CSC111 course. 
+
+I and other contributors are students at 
+University of Toronto, and currently taking CSC111.
 
 Some code is also taken from other sources like Stackoverflow and Geeksforgeeks. All the
 References are mentioned at the bottom of the file.
