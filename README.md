@@ -24,6 +24,9 @@ We are very glad 😃 that you want to contribute to our project. We welcome you
 check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) file 
 for further information on how you can contribute. 
 
+## Discussion Board
+You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/NetLinks/discussions/38)
+
 ## BinarySearchTrees
 
 ### Initialize a BST
