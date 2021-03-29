@@ -24,6 +24,11 @@ We are very glad 😃 that you want to contribute to our project. We welcome you
 check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) file 
 for further information on how you can contribute. 
 
+## Learn Github
+Thses are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with. 
+- [Intro to Git and Github by Daniel Shiffman](https://youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV)
+- [Guide to Contributing](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
+
 ## Discussion Board
 You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/NetLinks/discussions)
 
