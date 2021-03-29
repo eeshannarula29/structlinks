@@ -644,3 +644,7 @@ for item in lst:
 # 3
 # 5
 ```
+
+## References
+
+- [BST printitng](https://stackoverflow.com/questions/34012886/print-binary-tree-level-by-level-in-python/40885162)
