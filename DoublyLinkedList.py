@@ -1,3 +1,7 @@
+""" The file contains _DoubleNode and DoublyLinkedList class. Both of the classes have
+ideas taken from University of Toronto's CSC111 course.
+"""
+
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Optional, Sequence, Union, Callable
@@ -7,6 +11,8 @@ import math
 @dataclass
 class _DoubleNode:
     """A node in a doubly-linked list.
+
+    The class is taken from University of Toronto's CSC111 course
     """
     item: Any
     prev: Optional[_DoubleNode] = None
@@ -14,6 +20,10 @@ class _DoubleNode:
 
 
 class DoublyLinkedList:
+    """The class represents a Doubly linked-list
+
+    Idea for many of the methods is taken from the University of Toronto's CSC111 course
+    """
 
     def __init__(self, items: Optional[Sequence] = None, first: Optional[_DoubleNode] = None,
                  last: Optional[_DoubleNode] = None) -> None:
@@ -286,15 +296,6 @@ class DoublyLinkedList:
         else:
             raise IndexError
 
-    def __iter__(self) -> LinkedListIterator:
-        """Return an iterator for this linked list.
-
-        It should be straightforward to initialize the iterator here
-        (see the LinkedListIterator class below). Just remember to initialize
-        it using the first node in this linked list.
-        """
-        return LinkedListIterator(self._first)
-
     def index(self, item: Any) -> int:
         """Return the index of the first occurrence of the given item in this list.
         """
@@ -359,8 +360,11 @@ class DoublyLinkedList:
     def __add__(self, other: DoublyLinkedList) -> DoublyLinkedList:
         copy = self.copy()
 
-        for item in other:
-            copy.append(item)
+        curr = other._first
+
+        while curr is not None:
+            copy.append(curr.item)
+            curr = curr.next
 
         return copy
 
@@ -436,8 +440,11 @@ class DoublyLinkedList:
         """Extend self by other linked list"""
         copy = self.copy()
 
-        for item in other:
-            copy.append(item)
+        curr = other._first
+
+        while curr is not None:
+            copy.append(curr.item)
+            curr = curr.next
 
         self._first = copy._first
         self._last = copy._last
@@ -471,22 +478,3 @@ class DoublyLinkedList:
 
     def ceil(self) -> DoublyLinkedList:
         return self.map(lambda x: math.ceil(x))
-
-
-class LinkedListIterator:
-    """An object responsible for iterating through a linked list.
-    """
-
-    def __init__(self, first_node: Optional[_DoubleNode]) -> None:
-        self._curr = first_node
-
-    def __next__(self) -> Any:
-        """Return the next item in the iteration.
-        """
-
-        if self._curr is None:
-            raise StopIteration
-        else:
-            item = self._curr.item
-            self._curr = self._curr.next
-            return item

@@ -1,3 +1,7 @@
+"""This file contains the Node and Linked-list class. Both of these classes have
+many methods which are taken form the University of Toronto's CSC111 course. The
+"""
+
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Optional, Sequence, Union, Callable
@@ -7,12 +11,18 @@ import math
 @dataclass
 class _Node:
     """A node in a linked list.
+
+    The class it take from University of Toronto CSC111 course
     """
     item: Any
     next: Optional[_Node] = None
 
 
 class LinkedList:
+    """The class represents a Linked lists
+
+    Many of the methods in the class are taken from University of Toronto CSC111 course
+    """
 
     def __init__(self, items: Optional[Sequence] = None, first: Optional[_Node] = None) -> None:
         """Initialize a linked list.
@@ -278,16 +288,22 @@ class LinkedList:
         """Extend self by other linked list"""
         copy = self.copy()
 
-        for item in other:
-            copy.append(item)
+        curr = other._first
+
+        while curr is not None:
+            copy.append(curr.item)
+            curr = curr.next
 
         self._first = copy._first
 
     def __add__(self, other: LinkedList) -> LinkedList:
         copy = self.copy()
 
-        for item in other:
-            copy.append(item)
+        curr = other._first
+
+        while curr is not None:
+            copy.append(curr.item)
+            curr = curr.next
 
         return copy
 
@@ -296,11 +312,6 @@ class LinkedList:
         lst.sort(reverse=reverse)
         copy = LinkedList(lst)
         self._first = copy._first
-
-    def __iter__(self) -> LinkedListIterator:
-        """Return an iterator for this linked list.
-        """
-        return LinkedListIterator(self._first)
 
     def map(self, key=Callable) -> LinkedList:
         """Return a mapped list to key"""
@@ -331,24 +342,3 @@ class LinkedList:
 
     def ceil(self) -> LinkedList:
         return self.map(lambda x: math.ceil(x))
-
-
-class LinkedListIterator:
-    """An object responsible for iterating through a linked list.
-    """
-
-    _curr: Optional[_Node]
-
-    def __init__(self, first_node: Optional[_Node]) -> None:
-        self._curr = first_node
-
-    def __next__(self) -> Any:
-        """Return the next item in the iteration.
-        """
-
-        if self._curr is None:
-            raise StopIteration
-        else:
-            item = self._curr.item
-            self._curr = self._curr.next
-            return item
