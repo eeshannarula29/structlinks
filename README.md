@@ -3,6 +3,13 @@
 NetLinks can be used to access different DataTypes, like Linked list, Doubly Linked lists, Trees, Binary trees,
 and may more. You can even visualize them. It also can be used to sort and search items in these data types.
 
+I should also mention that much of the Basic data class structure is take from the
+University of Toronto's CSC111 course. I and other contributors are students student 
+at University of Toronto, and currently taking CSC111.
+
+Some code is also taken from other sources like Stackoverflow and Geeksforgeeks. All the
+References are mentioned at the bottom of the file.
+
 ## Current DataTypes
 
 - [Binary Search Trees](#BinarySearchTrees)
@@ -234,21 +241,6 @@ print(100 in bst)
 # Output:
 # False
 ```
-### Count Occurrence of an Item
-
-```python
-from NetLinks.BinaryTree import BinarySearchTree
-
-bst = BinarySearchTree.create_tree([2, 1, 3, 3, 5, 4])
-
-print(bst.count(3))
-# Output:
-# 2
-
-print(bst.count(100))
-# Output:
-# 0
-```
 
 ### Invert the BST
 
@@ -399,16 +391,6 @@ print(bst.mimimum())
 # Output:
 # 1
 
-# List contacting items Smaller than a number
-print(bst.smaller(4))
-# Output:
-# [1, 2, 3]
-
-# List contacting items Greater than a number
-print(bst.bigger(3))
-# Output:
-# [4, 5]
-
 # Copy BST
 print(bst.copy())
 # Output:
@@ -440,6 +422,8 @@ lst = LinkedList([1, 10, -3, 5])
 ```
 
 ### Basic Operations
+
+All of the basic operations are taken from the University of Toronto's CSC111 course. 
 ```python
 from NetLinks.LinkedList import LinkedList
 
@@ -518,22 +502,6 @@ floor_lst = lst1.floor()  # floor_lst = [1.0 -> 10.0 -> 3.0 -> 5.0]
 ceil_lst = lst1.ceil()  # ceil_lst = [2.0 -> 11.0 -> 4.0 -> 6.0]
 ```
 
-### Iterate Through the Linked List
-```python
-from NetLinks.LinkedList import LinkedList
-
-lst = LinkedList([1, 10, 3, 5])
-
-for item in lst:
-    print(item)
-
-# Output:
-# 1
-# 10
-# 3
-# 5
-```
-
 ## DoublyLinkedLists
 
 ### Initializing a Doubly Linked list
@@ -551,6 +519,8 @@ lst = DoublyLinkedList([1, 10, -3, 5])
 ```
 
 ### Basic Operations
+The idea for all of the basic operations is similar to that of Linked lists, which were taken 
+from the University of Toronto's CSC111 course. 
 ```python
 from NetLinks.LinkedList import DoublyLinkedList
 
@@ -629,22 +599,9 @@ floor_lst = lst1.floor()  # floor_lst = [1.0 <--> 10.0 <--> 3.0 <--> 5.0]
 ceil_lst = lst1.ceil()  # ceil_lst = [2.0 <--> 11.0 <--> 4.0 <--> 6.0]
 ```
 
-### Iterate Through the Doubly Linked List
-```python
-from NetLinks.DoublyLinkedList import DoublyLinkedList
-
-lst = DoublyLinkedList([1, 10, 3, 5])
-
-for item in lst:
-    print(item)
-
-# Output:
-# 1
-# 10
-# 3
-# 5
-```
-
 ## References
 
 - [BST printitng](https://stackoverflow.com/questions/34012886/print-binary-tree-level-by-level-in-python/40885162)
+- [University of Toronto](https://web.cs.toronto.edu/)
+- [Stackoverflow](https://stackoverflow.com/)
+- [Geeksforgeeks](https://www.geeksforgeeks.org/)

@@ -1,3 +1,10 @@
+"""This file contains the Binary search tree class. SOme of the methods of the class are
+taken from University of Toronto's CSC111 course
+
+The printing of the branched binary search tree is taken from StackOverflow, the link
+is the the readme.md file.
+"""
+
 from __future__ import annotations
 from typing import Optional, Any, Callable
 import math
@@ -5,7 +12,10 @@ import copy as cpy
 
 
 class BinarySearchTree:
+    """The class represents a Binary search tree
 
+    Some of the methods are taken from the University of Toronto's CSC111 course
+    """
     def __init__(self, root: Optional[Any]) -> None:
 
         if root is None:
@@ -255,21 +265,6 @@ class BinarySearchTree:
 
             return curr_min
 
-    def count(self, item: Any) -> int:
-        """Return the number of occurrences of <item> in this BST.
-        """
-        if self.is_empty():
-            return 0
-        else:
-            count = 0
-            if self._root == item:
-                count += 1
-            if self._left._root and item <= self._root:
-                count += self._left.count(item)
-            if self._right._root and item >= self._root:
-                count += self._right.count(item)
-            return count
-
     def items(self) -> list:
         """Return all of the items in the BST in sorted order.
         """
@@ -277,28 +272,6 @@ class BinarySearchTree:
             return []
         else:
             return self._left.items() + [self._root] + self._right.items()
-
-    def smaller(self, item: Any) -> list:
-        """Return all of the items in this BST less than <item> in sorted order.
-        """
-        if self.is_empty() or item is None:
-            return []
-        else:
-            if self._root >= item:
-                return self._left.smaller(item)
-            else:
-                return self._left.items() + [self._root] + self._right.smaller(item)
-
-    def bigger(self, item: Any) -> list:
-        """Return all of the items in this BST greater than <item> in sorted order.
-        """
-        if self.is_empty() or item is None:
-            return []
-        else:
-            if self._root <= item:
-                return self._right.bigger(item)
-            else:
-                return self._left.bigger(item) + [self._root] + self._right.items()
 
     def insert(self, item: Any) -> None:
         """Insert item into the list
