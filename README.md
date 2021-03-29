@@ -26,16 +26,16 @@ by constructing a tree from scratch.
 ```python
 from NetLinks.BinaryTree import BinarySearchTree
 
-bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
+bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 
 print(bst)
 
 # Output:
-# 4
-#   2
-#     1
-#   20 
-#     10
+#   _4___   
+#  /     \  
+#  2    20_ 
+# / \  /   \
+# 1 3 10  30
 ```
 
 #### From Scratch
@@ -58,13 +58,58 @@ bst.set_right_to(right)
 print(bst)
 
 # Output:
-# 7
-#   3
-#     2
-#     5
-#   11
-#     9
-#     13
+#   _7__   
+#  /    \  
+#  3   11_ 
+# / \ /   \
+# 2 5 9  13
+```
+
+### Printing BST
+
+#### Branched Form 
+```python
+from NetLinks.BinaryTree import BinarySearchTree
+
+bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
+
+bst.display()
+
+# Output:
+#   _4___   
+#  /     \  
+#  2    20_ 
+# / \  /   \
+# 1 3 10  30
+
+# or instead 
+
+print(bst)
+
+# Output:
+#   _4___   
+#  /     \  
+#  2    20_ 
+# / \  /   \
+# 1 3 10  30
+```
+
+#### Indented Form
+```python
+from NetLinks.BinaryTree import BinarySearchTree
+
+bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
+
+bst.display(indented = True)
+
+ # Output:
+ # |->4
+ #   |->2
+ #     |->1
+ #     |->3
+ #   |->20
+ #     |->10
+ #     |->30
 ```
 ### Properties 
 ```python
@@ -75,11 +120,11 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 print(bst)
 
 # Output:
-# 4
-#   2
-#     1
-#   20 
-#     10
+#   4___ 
+#  /    \
+#  2   20
+# /   /  
+# 1  10  
 
 print(bst.root) # root value
 # Output:
@@ -111,23 +156,22 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 print(bst)
 
 # Output:
-# 4
-#   2
-#     1
-#   20 
-#     10
+#   4___ 
+#  /    \
+#  2   20
+# /   /  
+# 1  10 
 
 bst.insert(3)
 
 print(bst)
 
 # Output:
-# 4
-#   2
-#     1
-#     3
-#   20 
-#     10
+#   _4___ 
+#  /     \
+#  2    20
+# / \  /  
+# 1 3 10  
 ```
 
 ### Remove Item from BST
@@ -140,21 +184,22 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 bst.remove(2)
 
 print(bst)
 
 # Output:
-# 3
-#   1
-#   5
-#     4
+#  3_ 
+# /  \
+# 1  5
+#   / 
+#   4
 ```
 
 ### Convert to List
@@ -211,22 +256,22 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 bst.invert()
 
 print(bst)
 
 # Output:
-# 3
-#   5
-#     4
-#   2
-#     1
+#  _3  
+# /  \ 
+# 5  2 
+#  \  \
+#  4  1
 ```
 
 ### Balance the BST
@@ -242,18 +287,21 @@ bst.set_right_to(right)
 print(bst)
 
 # Output:
-# 5
-#   6
-#     7
+# 5  
+#  \ 
+#  6 
+#   \
+#   7
+
 
 bst.balance()
 
 print(bst)
 
 # Output:
-# 6
-#   5
-#   7
+#  6 
+# / \
+# 5 7
 ```
 
 ### Mapping a BST
@@ -267,22 +315,22 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 bst.apply(lambda x: x ** 2) # <---- mapping x to x^2
 
 print(bst)
 
 # Output:
-# 9
-#   4
-#     1
-#   25
-#     16
+#   9___ 
+#  /    \
+#  4   25
+# /   /  
+# 1  16  
 ```
 
 #### Creating new Mapped BST
@@ -294,31 +342,31 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 mapped = bst.map(lambda x: x ** 2) # <---- mapping x to x^2
 
 print(mapped)
 
 # Output:
-# 9
-#   4
-#     1
-#   25
-#     16
+#   9___ 
+#  /    \
+#  4   25
+# /   /  
+# 1  16 
 
 print(bst)  # bst did not change
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 ```
 
 ### Some other methods
@@ -331,11 +379,11 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 # Maximum item in the tree
 print(bst.maximum()) 
@@ -360,11 +408,11 @@ print(bst.bigger(3))
 # Copy BST
 print(bst.copy())
 # Output:
-# 3
-#   2
-#     1
-#   5
-#     4
+#   3_ 
+#  /  \
+#  2  5
+# /  / 
+# 1  4 
 
 # abs, floor, and ceil
 abs_bst = bst.abs()  # <- map abs to all element of bst

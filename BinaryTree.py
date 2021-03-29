@@ -142,12 +142,23 @@ class BinarySearchTree:
 
         if not self.is_empty():
             self._root = key(self._root)
-            self._left.map(key)
-            self._right.map(key)
+            self._left.apply(key)
+            self._right.apply(key)
 
     def __str__(self) -> str:
         """Return a string representation of this BST.
         """
+        return self.display_branched()
+
+    def display(self, indented: Optional[bool] = False):
+        """Print a string representation of this BST"""
+        if indented:
+            print(self.display_indented())
+        else:
+            print(self.display_branched())
+
+    def display_indented(self) -> str:
+        """Return indented string representation of BST"""
         return self._str_indented(0)
 
     def _str_indented(self, depth: int) -> str:
@@ -157,10 +168,66 @@ class BinarySearchTree:
             return ''
         else:
             return (
-                    depth * '  ' + f'{self._root}\n'
+                    depth * '  ' + '|->' + f'{self._root}\n'
                     + self._left._str_indented(depth + 1)
                     + self._right._str_indented(depth + 1)
             )
+
+    def display_branched(self) -> str:
+        string_so_far = ''
+        lines, *_ = self._display_aux()
+        for line in lines:
+            string_so_far += line + '\n'
+
+        return string_so_far
+
+    def _display_aux(self) -> Any:
+
+        if self._right.is_empty() and self._left.is_empty():
+            line = '%s' % self._root
+            width = len(line)
+            height = 1
+            middle = width // 2
+
+            return [line], width, height, middle
+
+        if self._right.is_empty():
+            lines, n, p, x = self._left._display_aux()
+
+            s = '%s' % self._root
+            u = len(s)
+            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
+            second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
+            shifted_lines = [line + u * ' ' for line in lines]
+
+            return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
+
+        if self._left.is_empty():
+            lines, n, p, x = self._right._display_aux()
+
+            s = '%s' % self._root
+            u = len(s)
+            first_line = s + x * '_' + (n - x) * ' '
+            second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
+            shifted_lines = [u * ' ' + line for line in lines]
+
+            return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
+
+        left, n, p, x = self._left._display_aux()
+        right, m, q, y = self._right._display_aux()
+
+        s = '%s' % self._root
+        u = len(s)
+        first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
+        second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
+        if p < q:
+            left += [n * ' '] * (q - p)
+        elif q < p:
+            right += [m * ' '] * (p - q)
+        zipped_lines = zip(left, right)
+        lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
+
+        return lines, n + m + u, max(p, q) + 2, n + u // 2
 
     def maximum(self) -> Optional[int]:
         """Return the maximum number in this BST, or None if this BST is empty.
