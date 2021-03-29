@@ -309,8 +309,10 @@ class BinarySearchTree:
             self._right = BinarySearchTree(None)
         elif item > self._root:
             self._right.insert(item)
-        else:
+        elif item < self._root:
             self._left.insert(item)
+        else:
+            return
 
     def remove(self, item) -> bool:
         """Remove the item from the tree
@@ -372,6 +374,8 @@ class BinarySearchTree:
     @staticmethod
     def create_tree(lst: list) -> BinarySearchTree:
         """Return a balanced binary search tree"""
+        lst = list(set(lst))
+
         if len(lst) == 1:
             return BinarySearchTree(lst[0])
 
