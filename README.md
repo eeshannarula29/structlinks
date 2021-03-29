@@ -25,7 +25,7 @@ check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main
 for further information on how you can contribute. 
 
 ## Discussion Board
-You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/NetLinks/discussions/38)
+You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/NetLinks/discussions)
 
 ## BinarySearchTrees
 
