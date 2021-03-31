@@ -4,9 +4,9 @@ NetLinks can be used to access different DataTypes, like Linked list, Doubly Lin
 and may more. You can even visualize them. It also can be used to sort and search items in these data types.
 
 I should also mention that much of the Basic data class structure is take from the
-University of Toronto's CSC111 course. 
+University of Toronto's CSC111 course.
 
-I and other collaborators are students at 
+I and other collaborators are students at
 University of Toronto, and currently taking CSC111.
 
 Some code is also taken from other sources like Stackoverflow and Geeksforgeeks. All the
@@ -23,12 +23,12 @@ References are mentioned at the bottom of the file.
 - [Merge Sort](#MergeSort)
 
 ## Contribute to NetLinks
-We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please 
-check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) file 
-for further information on how you can contribute. 
+We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
+check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) file
+for further information on how you can contribute.
 
 ## Learn Github
-Thses are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with. 
+Thses are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with.
 - [Intro to Git and Github by Daniel Shiffman](https://youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV)
 - [Guide to Contributing](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
 
@@ -39,8 +39,8 @@ You can clarify all of your queries about github nand collborating on the [Discu
 
 ### Initialize a BST
 
-BST can be initialized in two ways, first by a list, which makes a balanced binary search tree or 
-by constructing a tree from scratch. 
+BST can be initialized in two ways, first by a list, which makes a balanced binary search tree or
+by constructing a tree from scratch.
 
 #### From list
 ```python
@@ -51,9 +51,9 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 print(bst)
 
 # Output:
-#   _4___   
-#  /     \  
-#  2    20_ 
+#   _4___
+#  /     \
+#  2    20_
 # / \  /   \
 # 1 3 10  30
 ```
@@ -65,11 +65,11 @@ from NetLinks.BinaryTree import BinarySearchTree
 bst = BinarySearchTree(7)
 
 left = BinarySearchTree(3)
-left.set_left_to(BinarySearchTree(2)) 
+left.set_left_to(BinarySearchTree(2))
 left.set_right_to(BinarySearchTree(5))
 
 right = BinarySearchTree(11)
-right.set_left_to(BinarySearchTree(9)) 
+right.set_left_to(BinarySearchTree(9))
 right.set_right_to(BinarySearchTree(13))
 
 bst.set_left_to(left)
@@ -78,16 +78,16 @@ bst.set_right_to(right)
 print(bst)
 
 # Output:
-#   _7__   
-#  /    \  
-#  3   11_ 
+#   _7__
+#  /    \
+#  3   11_
 # / \ /   \
 # 2 5 9  13
 ```
 
 ### Printing BST
 
-#### Branched Form 
+#### Branched Form
 ```python
 from NetLinks.BinaryTree import BinarySearchTree
 
@@ -96,20 +96,20 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 bst.display()
 
 # Output:
-#   _4___   
-#  /     \  
-#  2    20_ 
+#   _4___
+#  /     \
+#  2    20_
 # / \  /   \
 # 1 3 10  30
 
-# or instead 
+# or instead
 
 print(bst)
 
 # Output:
-#   _4___   
-#  /     \  
-#  2    20_ 
+#   _4___
+#  /     \
+#  2    20_
 # / \  /   \
 # 1 3 10  30
 ```
@@ -131,7 +131,7 @@ bst.display(indented = True)
  #     |->10
  #     |->30
 ```
-### Properties 
+### Properties
 ```python
 from NetLinks.BinaryTree import BinarySearchTree
 
@@ -140,11 +140,11 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 print(bst)
 
 # Output:
-#   4___ 
+#   4___
 #  /    \
 #  2   20
-# /   /  
-# 1  10  
+# /   /
+# 1  10
 
 print(bst.root) # root value
 # Output:
@@ -153,21 +153,21 @@ print(bst.root) # root value
 print(bst.left) # copy of left child
 # Output:
 #   2
-#  / 
+#  /
 # 1
 
 print(bst.right) # copy of right child
 # Output:
 #   20
-#  / 
+#  /
 # 10
 
 print(bst.height) # height of the tree
-# Output: 
+# Output:
 # 3
 
 print(bst.is_balanced) # Weather tree is balanced
-# Output: 
+# Output:
 # True
 ```
 ### Insert Item in BST
@@ -180,22 +180,22 @@ bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 print(bst)
 
 # Output:
-#   4___ 
+#   4___
 #  /    \
 #  2   20
-# /   /  
-# 1  10 
+# /   /
+# 1  10
 
 bst.insert(3)
 
 print(bst)
 
 # Output:
-#   _4___ 
+#   _4___
 #  /     \
 #  2    20
-# / \  /  
-# 1 3 10  
+# / \  /
+# 1 3 10
 ```
 
 ### Remove Item from BST
@@ -208,21 +208,21 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 bst.remove(2)
 
 print(bst)
 
 # Output:
-#  3_ 
+#  3_
 # /  \
 # 1  5
-#   / 
+#   /
 #   4
 ```
 
@@ -265,20 +265,20 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 bst.invert()
 
 print(bst)
 
 # Output:
-#  _3  
-# /  \ 
-# 5  2 
+#  _3
+# /  \
+# 5  2
 #  \  \
 #  4  1
 ```
@@ -296,9 +296,9 @@ bst.set_right_to(right)
 print(bst)
 
 # Output:
-# 5  
-#  \ 
-#  6 
+# 5
+#  \
+#  6
 #   \
 #   7
 
@@ -308,7 +308,7 @@ bst.balance()
 print(bst)
 
 # Output:
-#  6 
+#  6
 # / \
 # 5 7
 ```
@@ -324,22 +324,22 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 bst.apply(lambda x: x ** 2) # <---- mapping x to x^2
 
 print(bst)
 
 # Output:
-#   9___ 
+#   9___
 #  /    \
 #  4   25
-# /   /  
-# 1  16  
+# /   /
+# 1  16
 ```
 
 #### Creating new Mapped BST
@@ -351,31 +351,31 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 mapped = bst.map(lambda x: x ** 2) # <---- mapping x to x^2
 
 print(mapped)
 
 # Output:
-#   9___ 
+#   9___
 #  /    \
 #  4   25
-# /   /  
-# 1  16 
+# /   /
+# 1  16
 
 print(bst)  # bst did not change
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 ```
 
 ### Some other methods
@@ -388,30 +388,30 @@ bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 print(bst)
 
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 # Maximum item in the tree
-print(bst.maximum()) 
+print(bst.maximum())
 # Output:
 # 5
 
 # Minimum item in the tree
-print(bst.mimimum()) 
+print(bst.mimimum())
 # Output:
 # 1
 
 # Copy BST
 print(bst.copy())
 # Output:
-#   3_ 
+#   3_
 #  /  \
 #  2  5
-# /  / 
-# 1  4 
+# /  /
+# 1  4
 
 # abs, floor, and ceil
 abs_bst = bst.abs()  # <- map abs to all element of bst
@@ -422,21 +422,21 @@ ceil_bst = bst.ceil()  # <- map ceil to all element of bst
 ## LinkedLists
 ### Initializing a Linked list
 You can initialize a linked list by simply creating a linked list object
-and optionally pass in a list object witch would contain the initial list 
-items. 
+and optionally pass in a list object witch would contain the initial list
+items.
 
 ```python
 from NetLinks.LinkedList import LinkedList
 
 # create an empty linked list
-lst = LinkedList()  
-# create a linked list with initial values 
+lst = LinkedList()
+# create a linked list with initial values
 lst = LinkedList([1, 10, -3, 5])
 ```
 
 ### Basic Operations
 
-All of the basic operations are taken from the University of Toronto's CSC111 course. 
+All of the basic operations are taken from the University of Toronto's CSC111 course.
 ```python
 from NetLinks.LinkedList import LinkedList
 
@@ -454,7 +454,7 @@ lst.append(2)  # After the call, lst = [1 -> 10 -> 3 -> 5 -> 2]
 # Insert items
 lst.insert(0, 200)  # After the call, lst = [200 -> 1 -> 10 -> 3 -> 5 -> 2]
 
-# Get & Set item by index 
+# Get & Set item by index
 item = lst[1]  # here item = 10
 lst[2] = 100  # set element at index 2 to be 100, so lst = [200 -> 1 -> 100 -> 3 -> 5 -> 2]
 
@@ -467,7 +467,7 @@ popped = lst.pop(0)  # here popped = 200, and lst = [1 -> 100 -> 3 -> 5 -> 2]
 # 2) by item value
 lst.remove(1) # now list lst = [100 -> 3 -> 5 -> 2]
 
-# Checking for Element 
+# Checking for Element
 cond1 = 2 in lst  # here cond1 is True as 2 is in lst
 cond2 = 1 in lst  # here cond2 is False as 1 is not in lst
 
@@ -507,7 +507,7 @@ print(lst)
 # Output:
 # [1 -> 10 -> 3 -> 5]
 
-lst.invert()  # mutate lst 
+lst.invert()  # mutate lst
 
 print(lst)
 # Output:
@@ -521,7 +521,7 @@ from NetLinks.LinkedList import LinkedList
 lst = LinkedList([1, 10, 3, 5])
 
 # Map function f(x) = x^2
-new_lst = lst.map(lambda x: x ** 2) 
+new_lst = lst.map(lambda x: x ** 2)
 
 print(new_lst)
 # Output:
@@ -560,21 +560,21 @@ print(ceil_lst)
 
 ### Initializing a Doubly Linked list
 You can initialize a Doubly linked list by simply creating a Doubly linked list object
-and optionally pass in a list object witch would contain the initial list 
-items. 
+and optionally pass in a list object witch would contain the initial list
+items.
 
 ```python
 from NetLinks.LinkedList import DoublyLinkedList
 
 # create an empty linked list
-lst = DoublyLinkedList()  
-# create a linked list with initial values 
+lst = DoublyLinkedList()
+# create a linked list with initial values
 lst = DoublyLinkedList([1, 10, -3, 5])
 ```
 
 ### Basic Operations
-The idea for all of the basic operations is similar to that of Linked lists, which were taken 
-from the University of Toronto's CSC111 course. 
+The idea for all of the basic operations is similar to that of Linked lists, which were taken
+from the University of Toronto's CSC111 course.
 ```python
 from NetLinks.LinkedList import DoublyLinkedList
 
@@ -592,7 +592,7 @@ lst.append(2)  # After the call, lst = [1 <--> 10 <--> 3 <--> 5 <--> 2]
 # Insert items
 lst.insert(0, 200)  # After the call, lst = [200 <--> 1 <--> 10 <--> 3 <--> 5 <--> 2]
 
-# Get & Set item by index 
+# Get & Set item by index
 item = lst[1]  # here item = 10
 lst[2] = 100  # set element at index 2 to be 100, so lst = [200 <--> 1 <--> 100 <--> 3 <--> 5 <--> 2]
 
@@ -605,7 +605,7 @@ popped = lst.pop(0)  # here popped = 200, and lst = [1 <--> 100 <--> 3 <--> 5 <-
 # 2) by item value
 lst.remove(1) # now list lst = [100 <--> 3 <--> 5 <--> 2]
 
-# Checking for Element 
+# Checking for Element
 cond1 = 2 in lst  # here cond1 is True as 2 is in lst
 cond2 = 1 in lst  # here cond2 is False as 1 is not in lst
 
@@ -645,7 +645,7 @@ print(lst)
 # Output:
 # [1 <--> 10 <--> 3 <--> 5]
 
-lst.invert()  # mutate lst 
+lst.invert()  # mutate lst
 
 print(lst)
 # Output:
@@ -659,7 +659,7 @@ from NetLinks.DoublyLinkedList import DoublyLinkedList
 lst = DoublyLinkedList([1, 10, 3, 5])
 
 # Map function f(x) = x^2
-new_lst = lst.map(lambda x: x ** 2) 
+new_lst = lst.map(lambda x: x ** 2)
 
 print(new_lst)
 # Output:
@@ -695,7 +695,7 @@ print(ceil_lst)
 ```
 
 ## MergeSort
-Use mergesort algorithm to return a sorted list
+Use mergesort algorithm to return a sorted list.
 ```python
 from NetLinks.SortingAlgorithms import mergesort
 
@@ -711,6 +711,106 @@ print(lst)
 print(sorted_lst)
 # Output:
 # [1, 4, 20, 50, 100]
+```
+
+## QuickSort (In Place)
+Use quicksort algorithm to return a sorted list. This is a *mutating* method: it modifies the input instead of returning an output.
+```python
+from NetLinks.SortingAlgorithms import quicksort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+return_value = quicksort(lst)
+
+print(lst)
+# Output:
+# [1, 4, 20, 50, 100]
+
+print(sorted_lst)
+# Output:
+# None
+```
+
+## QuickSort (Non-Mutating)
+Use quicksort algorithm to return a sorted list. This is a *non-mutating* method: the input list will be preserved.
+Note that the runtime of this version is technically inferior to the mutating version of quicksort, above.
+```python
+from NetLinks.SortingAlgorithms import no_mut_quicksort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+sorted_lst = no_mut_quicksort(lst)
+
+print(lst)
+# Output:
+# [1, 100, 50, 20, 4]
+
+print(sorted_lst)
+# Output:
+# [1, 4, 20, 50, 100]
+```
+
+## SelectionSort
+Use the selection sort algorithm to return a sorted list. This is a mutating method that changes the input list.
+```python
+from NetLinks.SortingAlgorithms import selection_sort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+return_value = selection_sort(lst)
+
+print(lst)
+# Output:
+# [1, 4, 20, 50, 100]
+
+print(sorted_lst)
+# Output:
+# None
+```
+
+## InsertionSort
+Use the insertion sort algorithm to return a sorted list. Like selection sort, this is a mutating algorithm that modifies it's input
+```python
+from NetLinks.SortingAlgorithms import insertion_sort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+return_value = insertion_sort(lst)
+
+print(lst)
+# Output:
+# [1, 4, 20, 50, 100]
+
+print(sorted_lst)
+# Output:
+# None
+```
+
+## Sorting Algorithms: The Key Parameter
+Each sorting algorithm accepts an optional `key` parameter: pass in a function to adjust the weighting scheme (or control the values of) of the elements in the list.
+
+For example, if we wanted to sort the list from largest to smallest (rather than smallest to largest, as is default), we can:
+```python
+# Define a function that reverses the weighting of integers
+def invert(x: int) -> int:
+    return -x
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# Sort the list, passing in the function as a key
+return_value = insertion_sort(lst, key=invert)
+
+print(lst)
+# Output:
+# [100, 50, 20, 4, 1]
+
+print(sorted_lst)
+# Output:
+# None
 ```
 
 ## References

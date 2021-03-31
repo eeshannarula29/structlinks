@@ -107,12 +107,12 @@ class TestInPlaceQuickSort:
 ########################################
 # Quick sort (Out of Place)
 ########################################
-class TestOutPlaceQuickSort:
+class TestNoMutQuickSort:
     def test_unsortedlist(self) -> None:
         """Test mergesort on an unsorted list"""
         test_list = [9, 7, 5, 2, 4, 5, 3, 3, 2, 1, 10, 200]
 
-        actual = out_place_quicksort(test_list)
+        actual = no_mut_quicksort(test_list)
         expected = sorted(test_list)
 
         assert actual == expected
@@ -122,7 +122,7 @@ class TestOutPlaceQuickSort:
         """Test mergesort on an unsorted list"""
         test_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-        actual = out_place_quicksort(test_list)
+        actual = no_mut_quicksort(test_list)
         expected = sorted(test_list)
 
         assert actual == expected
@@ -132,7 +132,7 @@ class TestOutPlaceQuickSort:
         """Test mergesort on an unsorted list"""
         test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
-        actual = out_place_quicksort(test_list)
+        actual = no_mut_quicksort(test_list)
         expected = sorted(test_list)
 
         assert actual == expected
@@ -142,7 +142,7 @@ class TestOutPlaceQuickSort:
         """Test mergesort on an unsorted list"""
         test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
-        actual = out_place_quicksort(test_list, (lambda x: -x))
+        actual = no_mut_quicksort(test_list, (lambda x: -x))
         expected = sorted(test_list, key=(lambda x: -x))
 
         assert actual == expected

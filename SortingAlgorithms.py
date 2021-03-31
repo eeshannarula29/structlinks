@@ -123,7 +123,7 @@ def _in_place_partition(lst: list, b: int, e: int, key: Callable[[Any], Any]) ->
 ########################################
 # Quick sort (Out of Place)
 ########################################
-def out_place_quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
+def no_mut_quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """Return a sorted list with the elements of lst using the quicksort
     algorithm without in-place optimizations: each recursive call creates a
     new list to be sorted.
@@ -132,12 +132,12 @@ def out_place_quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) ->
         return lst
     else:
         pivot = lst[0]
-        left, right = _out_place_partition(lst[1:], pivot, key)  # We remove the pivot
+        left, right = _no_mut_partition(lst[1:], pivot, key)  # We remove the pivot
 
-        return out_place_quicksort(left, key) + [lst[0]] + out_place_quicksort(right, key)
+        return no_mut_quicksort(left, key) + [lst[0]] + no_mut_quicksort(right, key)
 
 
-def _out_place_partition(lst: list, pivot: Any, key: Callable[[Any], Any]) -> tuple[list, list]:
+def _no_mut_partition(lst: list, pivot: Any, key: Callable[[Any], Any]) -> tuple[list, list]:
     """Partition the list lst relative to the given pivot.
 
     The first index of the tuple is a list of all items smaller than the pivot,
