@@ -150,3 +150,51 @@ def _out_place_partition(lst: list, pivot: Any) -> tuple[list, list]:
             larger_lst.append(item)
 
     return (smaller_lst, larger_lst)
+
+
+########################################
+# Selection Sort
+########################################
+def selection_sort(lst: list) -> None:
+    """An in-place (mutating) implementation of the selection sort algorithm.
+    """
+
+    # Build a sorted list from the smallest elements in the unsorted portion of
+    # the list
+    for idx in range(len(lst)):
+        min_index = _smallest_index(lst, idx)
+        lst[idx], lst[min_index] = lst[min_index], lst[idx]
+
+
+def _smallest_index(lst: list, i: int) -> int:
+    """Return the index of the smallest item in the sublist lst[i:]
+    """
+
+    # Extract the smallest item
+    smallest_so_far = i
+    for idx in range(i + 1, len(lst)):
+        if lst[smallest_so_far] > lst[idx]:
+            smallest_so_far = idx
+
+    return smallest_so_far
+
+
+########################################
+# Selection Sort
+########################################
+def insertion_sort(lst: list) -> None:
+    """An in-place (mutating) implementation of the insertion sort algorithm.
+    """
+    for idx in range(0, len(lst)):
+        _insert(lst, idx)
+
+
+def _insert(lst: list, i: int) -> None:
+    """Move lst[i] so that lst[:i + 1] is sorted.
+    """
+    idx = i
+
+    while idx > 0 and lst[idx] < lst[idx - 1]:
+        lst[idx], lst[idx - 1] = lst[idx - 1], lst[idx]
+
+        idx -= 1
