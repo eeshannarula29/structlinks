@@ -7,14 +7,18 @@ A re-implementation of several sorting algorithms, including:
 
 Many of these sort are inspired by the implementation of the CSC111
 University of Toronto Course
+
+Implementation Notes:
+    - Every top level sorting algorithm (the main function of that algorithm)
+        has a default value for key, (lambda x: x) which does not modify it's input
 """
-from typing import Any
+from typing import Any, Callable
 
 
 ########################################
 # Merge sort
 ########################################
-def mergesort(lst: list) -> list:
+def mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """
     Return a sorted list of the items in lst
     using the merge sort algorithm.
@@ -25,14 +29,14 @@ def mergesort(lst: list) -> list:
         m = len(lst) // 2  # Split the list in half
 
         # Sort each half individual
-        left = mergesort(lst[:m])
-        right = mergesort(lst[m:])
+        left = mergesort(lst[:m], key)
+        right = mergesort(lst[m:], key)
 
         # Merge and return the sorted half
-        return _mergesort_merge(left, right)
+        return _mergesort_merge(left, right, key)
 
 
-def _mergesort_merge(left: list, right: list) -> list:
+def _mergesort_merge(left: list, right: list, key: Callable[[Any], Any]) -> list:
     """Return a single sorted list from two merged input lists."""
 
     # Keep track of the current item being inspected in each list
@@ -43,16 +47,16 @@ def _mergesort_merge(left: list, right: list) -> list:
     sorted_so_far = []
     # Loop until we reach the end of one list
     while left_idx < len(left) and right_idx < len(right):
-        # assert sorted_so_far == sorted(left[:left_idx] + right[:right_idx])
+        # assert sorted_so_far == sorted(left[:left_idx] + right[:right_idx], key=key)
 
-        if left[left_idx] <= right[right_idx]:
+        if key(left[left_idx]) <= key(right[right_idx]):
             sorted_so_far.append(left[left_idx])
             left_idx -=- 1
         else:
             sorted_so_far.append(right[right_idx])
             right_idx -=- 1
 
-    # assert left_idx == len(left) or right_idx == len(right)
+    assert left_idx == len(left) or right_idx == len(right)
 
     # Add the remaining element in one of the lists to the sorted list
     if left_idx < len(left):
@@ -64,14 +68,14 @@ def _mergesort_merge(left: list, right: list) -> list:
 ########################################
 # Quick sort (In Place)
 ########################################
-def quicksort(lst: list) -> None:
+def quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
     """An in-place implementation of the quick-sort algorithm.
     """
 
-    _in_place_quicksort(lst, 0, len(lst))
+    _in_place_quicksort(lst, 0, len(lst), key)
 
 
-def _in_place_quicksort(lst: list, b: int, e: int) -> None:
+def _in_place_quicksort(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> None:
     """The main helper method of the in-place quicksort algorithm.
     """
     if e - b < 2:  # If there is only one element left in the list
@@ -79,21 +83,21 @@ def _in_place_quicksort(lst: list, b: int, e: int) -> None:
     else:
         # Partition the list into entries smaller than the pivot
         # and entries larger than the pivot
-        pivot = _in_place_partition(lst, b, e)
+        pivot = _in_place_partition(lst, b, e, key)
 
         # Sort both sides of the pivot
-        _in_place_quicksort(lst, 0, pivot)
-        _in_place_quicksort(lst, pivot + 1, e)
+        _in_place_quicksort(lst, 0, pivot, key)
+        _in_place_quicksort(lst, pivot + 1, e, key)
 
 
-def _in_place_partition(lst: list, b: int, e: int) -> int:
+def _in_place_partition(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> int:
     """Partition the input list between indexes b and e using the pivot
     at index b (the pivot is lst[b]).
 
     Return the index of the pivot after the inplace operations are complete.
     """
 
-    pivot = lst[b]
+    pivot = key(lst[b])
     left_idx = b + 1
     right_idx = e
 
@@ -101,7 +105,7 @@ def _in_place_partition(lst: list, b: int, e: int) -> int:
     while left_idx != right_idx:
         # If item at left index is smaller than the pivot, then move out index
         # up one, confirming that fact
-        if lst[left_idx] <= pivot:
+        if key(lst[left_idx]) <= pivot:
             left_idx -=- 1
         else:
             # Otherwise, swap the entry to the end and extend the region that
@@ -119,7 +123,7 @@ def _in_place_partition(lst: list, b: int, e: int) -> int:
 ########################################
 # Quick sort (Out of Place)
 ########################################
-def out_place_quicksort(lst: list) -> list:
+def out_place_quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """Return a sorted list with the elements of lst using the quicksort
     algorithm without in-place optimizations: each recursive call creates a
     new list to be sorted.
@@ -128,12 +132,12 @@ def out_place_quicksort(lst: list) -> list:
         return lst
     else:
         pivot = lst[0]
-        left, right = _out_place_partition(lst[1:], pivot)  # We remove the pivot
+        left, right = _out_place_partition(lst[1:], pivot, key)  # We remove the pivot
 
-        return out_place_quicksort(left) + [lst[0]] + out_place_quicksort(right)
+        return out_place_quicksort(left, key) + [lst[0]] + out_place_quicksort(right, key)
 
 
-def _out_place_partition(lst: list, pivot: Any) -> tuple[list, list]:
+def _out_place_partition(lst: list, pivot: Any, key: Callable[[Any], Any]) -> tuple[list, list]:
     """Partition the list lst relative to the given pivot.
 
     The first index of the tuple is a list of all items smaller than the pivot,
@@ -144,7 +148,7 @@ def _out_place_partition(lst: list, pivot: Any) -> tuple[list, list]:
     larger_lst = []
 
     for item in lst:
-        if item <= pivot:
+        if key(item) <= key(pivot):
             smaller_lst.append(item)
         else:
             larger_lst.append(item)
@@ -155,25 +159,25 @@ def _out_place_partition(lst: list, pivot: Any) -> tuple[list, list]:
 ########################################
 # Selection Sort
 ########################################
-def selection_sort(lst: list) -> None:
+def selection_sort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
     """An in-place (mutating) implementation of the selection sort algorithm.
     """
 
     # Build a sorted list from the smallest elements in the unsorted portion of
     # the list
     for idx in range(len(lst)):
-        min_index = _smallest_index(lst, idx)
+        min_index = _smallest_index(lst, idx, key)
         lst[idx], lst[min_index] = lst[min_index], lst[idx]
 
 
-def _smallest_index(lst: list, i: int) -> int:
+def _smallest_index(lst: list, i: int, key: Callable[[Any], Any]) -> int:
     """Return the index of the smallest item in the sublist lst[i:]
     """
 
     # Extract the smallest item
     smallest_so_far = i
     for idx in range(i + 1, len(lst)):
-        if lst[smallest_so_far] > lst[idx]:
+        if key(lst[smallest_so_far]) > key(lst[idx]):
             smallest_so_far = idx
 
     return smallest_so_far
@@ -182,19 +186,21 @@ def _smallest_index(lst: list, i: int) -> int:
 ########################################
 # Selection Sort
 ########################################
-def insertion_sort(lst: list) -> None:
+def insertion_sort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
     """An in-place (mutating) implementation of the insertion sort algorithm.
     """
     for idx in range(0, len(lst)):
-        _insert(lst, idx)
+        _insert(lst, idx, key)
 
 
-def _insert(lst: list, i: int) -> None:
+def _insert(lst: list, i: int, key: Callable[[Any], Any]) -> None:
     """Move lst[i] so that lst[:i + 1] is sorted.
     """
     idx = i
 
-    while idx > 0 and lst[idx] < lst[idx - 1]:
+    # "Shift" the item at index to the left until the item is greater than the item
+    # in the index before it
+    while idx > 0 and key(lst[idx]) < key(lst[idx - 1]):
         lst[idx], lst[idx - 1] = lst[idx - 1], lst[idx]
 
         idx -= 1

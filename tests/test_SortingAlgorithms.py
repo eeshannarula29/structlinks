@@ -46,6 +46,16 @@ class TestMergeSort:
         assert actual == expected
 
 
+    def test_key_reverse(self) -> None:
+        """Test mergesort on an unsorted list"""
+        test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+        actual = mergesort(test_list, (lambda x: -x))
+        expected = sorted(test_list, key=(lambda x: -x))
+
+        assert actual == expected
+
+
 ########################################
 # Quick sort (In Place)
 ########################################
@@ -83,6 +93,17 @@ class TestInPlaceQuickSort:
         assert actual == expected
 
 
+    def test_key_reverse(self) -> None:
+        """Test mergesort on an unsorted list"""
+        test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+        quicksort(test_list, (lambda x: -x))
+        actual = test_list.copy()
+        expected = sorted(test_list.copy(), key=(lambda x: -x))
+
+        assert actual == expected
+
+
 ########################################
 # Quick sort (Out of Place)
 ########################################
@@ -113,6 +134,16 @@ class TestOutPlaceQuickSort:
 
         actual = out_place_quicksort(test_list)
         expected = sorted(test_list)
+
+        assert actual == expected
+
+
+    def test_key_reverse(self) -> None:
+        """Test mergesort on an unsorted list"""
+        test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+        actual = out_place_quicksort(test_list, (lambda x: -x))
+        expected = sorted(test_list, key=(lambda x: -x))
 
         assert actual == expected
 
@@ -154,6 +185,17 @@ class TestSelectionSort:
         assert actual == expected
 
 
+    def test_key_reverse(self) -> None:
+        """Test mergesort on an unsorted list"""
+        test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+        selection_sort(test_list, (lambda x: -x))
+        actual = test_list.copy()
+        expected = sorted(test_list.copy(), key=(lambda x: -x))
+
+        assert actual == expected
+
+
 ########################################
 # Insertion Sort
 ########################################
@@ -187,5 +229,16 @@ class TestInsertionSort:
         expected = sorted(test_list.copy())
         insertion_sort(test_list)
         actual = test_list.copy()
+
+        assert actual == expected
+
+
+    def test_key_reverse(self) -> None:
+        """Test mergesort on an unsorted list"""
+        test_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+        insertion_sort(test_list, (lambda x: -x))
+        actual = test_list.copy()
+        expected = sorted(test_list.copy(), key=(lambda x: -x))
 
         assert actual == expected
