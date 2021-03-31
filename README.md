@@ -18,6 +18,9 @@ References are mentioned at the bottom of the file.
 - [Linked Lists](#LinkedLists)
 - [Doubly Linked Lists](#DoublyLinkedLists)
 
+## Current Sorting Algorithms
+
+- [Merge Sort](#MergeSort)
 
 ## Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please 
@@ -607,6 +610,25 @@ lst1 = DoublyLinkedList([1.1, 10.5, -3.7, 5.2])
 abs_lst = lst1.abs()  # abs_list = [1.1 <--> 10.5 <--> 3.7 <--> 5.2]
 floor_lst = lst1.floor()  # floor_lst = [1.0 <--> 10.0 <--> 3.0 <--> 5.0]
 ceil_lst = lst1.ceil()  # ceil_lst = [2.0 <--> 11.0 <--> 4.0 <--> 6.0]
+```
+
+## MergeSort
+Use mergesort algorithm to return a sorted list
+```python
+from NetLinks.SortingAlgorithms import mergesort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+sorted_lst = mergesort(lst)
+
+print(lst)
+# Output:
+# [1, 100, 50, 20, 4]
+
+print(sorted_lst)
+# Output:
+# [1, 4, 20, 50, 100]
 ```
 
 ## References
