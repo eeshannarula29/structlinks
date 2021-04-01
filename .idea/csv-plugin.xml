@@ -10,7 +10,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/DoublyLinkedList.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/LinkedList.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/README.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/tests/test_LinkedList.py">
           <value>
             <Attribute>
               <option name="separator" value="," />
