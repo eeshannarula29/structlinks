@@ -702,12 +702,12 @@ print(ceil_lst)
 ## MergeSort
 Use mergesort algorithm to return a sorted list.
 ```python
-from NetLinks.SortingAlgorithms import mergesort
+from NetLinks.SortingAlgorithms import no_mut_mergesort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
 # make a sorted list
-sorted_lst = mergesort(lst)
+sorted_lst = no_mut_mergesort(lst)
 
 print(lst)
 # Output:
@@ -727,7 +727,7 @@ from NetLinks.SortingAlgorithms import mergesort
 # initialize a list
 lst = [1, 100, 50, 20, 4]
 # make a sorted list
-return_value = in_place_mergesort(lst)
+return_value = mergesort(lst)
 
 print(lst)
 # Output:

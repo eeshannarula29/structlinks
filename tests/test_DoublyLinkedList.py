@@ -1,5 +1,9 @@
 """The file contains unit tests for  Doubly linked list class"""
 
+# Add the root directory to PYTHONPATH
+import sys
+sys.path.append('.')
+
 from DoublyLinkedList import DoublyLinkedList
 
 
