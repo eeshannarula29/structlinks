@@ -18,7 +18,7 @@ from typing import Any, Callable
 ########################################
 # Merge sort (In-place)
 ########################################
-def in_place_mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
+def mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
     """
     Return a sorted list of the items in lst
     using the merge sort algorithm.
@@ -66,7 +66,7 @@ def _in_place_merge(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> Non
 ########################################
 # Merge sort (Non-mutating)
 ########################################
-def mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
+def no_mut_mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """
     Return a sorted list of the items in lst
     using the merge sort algorithm.
@@ -77,14 +77,14 @@ def mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
         m = len(lst) // 2  # Split the list in half
 
         # Sort each half individual
-        left = mergesort(lst[:m], key)
-        right = mergesort(lst[m:], key)
+        left = no_mut_mergesort(lst[:m], key)
+        right = no_mut_mergesort(lst[m:], key)
 
         # Merge and return the sorted half
-        return _mergesort_merge(left, right, key)
+        return _no_mut_mergesort_merge(left, right, key)
 
 
-def _mergesort_merge(left: list, right: list, key: Callable[[Any], Any]) -> list:
+def _no_mut_mergesort_merge(left: list, right: list, key: Callable[[Any], Any]) -> list:
     """Return a single sorted list from two merged input lists."""
 
     # Keep track of the current item being inspected in each list
@@ -169,7 +169,7 @@ def _in_place_partition(lst: list, b: int, e: int, key: Callable[[Any], Any]) ->
 
 
 ########################################
-# Quick sort (Out of Place)
+# Quick sort (Non-mutating)
 ########################################
 def no_mut_quicksort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """Return a sorted list with the elements of lst using the quicksort

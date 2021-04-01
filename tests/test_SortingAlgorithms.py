@@ -112,14 +112,14 @@ class BaseInPlaceSort:
         assert actual == expected
 
 
-class TestNoMutatingMergesort(BaseNoMutatingSort):
+class TestNoMutatingMergesort(BaseInPlaceSort):
     """Test the non-mutating mergesort algorithm"""
     algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(mergesort)
 
 
-class TestInPlaceMergesort(BaseInPlaceSort):
+class TestInPlaceMergesort(BaseNoMutatingSort):
     """Test the non-mutating mergesort algorithm"""
-    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(in_place_mergesort)
+    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(no_mut_mergesort)
 
 
 class TestInPlaceQuicksort(BaseInPlaceSort):
