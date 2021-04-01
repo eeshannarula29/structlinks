@@ -21,6 +21,10 @@ References are mentioned at the bottom of the file.
 ## Current Sorting Algorithms
 
 - [Merge Sort](#MergeSort)
+- [Quick Sort (In Place)](#QuickSort(InPlace))
+- [Quick Sort (Non-Mutating)](#QuickSort(NonMutating))
+- [Selection Sort](#SelectionSort)
+- [Insertion Sort](#InsertionSort)
 
 ## Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
@@ -28,7 +32,7 @@ check the [CONTRIBUTING.md](https://github.com/eeshannarula29/NetLinks/blob/main
 for further information on how you can contribute.
 
 ## Learn Github
-Thses are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with.
+These are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with.
 - [Intro to Git and Github by Daniel Shiffman](https://youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV)
 - [Guide to Contributing](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
 
@@ -713,7 +717,7 @@ print(sorted_lst)
 # [1, 4, 20, 50, 100]
 ```
 
-## QuickSort (In Place)
+## QuickSort(InPlace)
 Use quicksort algorithm to return a sorted list. This is a *mutating* method: it modifies the input instead of returning an output.
 ```python
 from NetLinks.SortingAlgorithms import quicksort
@@ -732,7 +736,7 @@ print(sorted_lst)
 # None
 ```
 
-## QuickSort (Non-Mutating)
+## QuickSort(NonMutating)
 Use quicksort algorithm to return a sorted list. This is a *non-mutating* method: the input list will be preserved.
 Note that the runtime of this version is technically inferior to the mutating version of quicksort, above.
 ```python
@@ -795,6 +799,8 @@ Each sorting algorithm accepts an optional `key` parameter: pass in a function t
 
 For example, if we wanted to sort the list from largest to smallest (rather than smallest to largest, as is default), we can:
 ```python
+from NetLinks.SortingAlgorithms import insertion_sort
+
 # Define a function that reverses the weighting of integers
 def invert(x: int) -> int:
     return -x
