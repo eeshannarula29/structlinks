@@ -29,8 +29,23 @@ class DoublyLinkedList:
                  last: Optional[_DoubleNode] = None) -> None:
         """Initialize a new doubly-linked list containing the given items.
         """
-        self._first = first
-        self._last = last
+
+        if first and last:
+            self._first = first
+            self._last = last
+
+            count = 0
+            curr = self._first
+
+            while curr is not None:
+                count += 1
+                curr = curr.next
+
+            self._length = count
+            return
+
+        self._first = None
+        self._last = None
         self._length = len(items) if items else 0
 
         if items:
@@ -448,6 +463,7 @@ class DoublyLinkedList:
 
         self._first = copy._first
         self._last = copy._last
+        self._length = copy._length
 
     def map(self, key=Callable) -> DoublyLinkedList:
         """Return a mapped list to key"""
