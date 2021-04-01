@@ -20,7 +20,8 @@ References are mentioned at the bottom of the file.
 
 ## Current Sorting Algorithms
 
-- [Merge Sort](#MergeSort)
+- [Merge Sort (Non-Mutating)](#MergeSort)
+- [Merge Sort (In Place)](#MergeSort-InPlace)
 - [Quick Sort (In Place)](#QuickSort-InPlace)
 - [Quick Sort (Non-Mutating)](#QuickSort-NonMutating)
 - [Selection Sort](#SelectionSort)
@@ -717,6 +718,26 @@ print(sorted_lst)
 # [1, 4, 20, 50, 100]
 ```
 
+## MergeSort-InPlace
+Use an inplace mergesort algorithm to return a sorted list.
+This version is inferior (in terms of running time) to the non-mutating implementation of mergesort.
+```python
+from NetLinks.SortingAlgorithms import mergesort
+
+# initialize a list
+lst = [1, 100, 50, 20, 4]
+# make a sorted list
+return_value = in_place_mergesort(lst)
+
+print(lst)
+# Output:
+# [1, 4, 20, 50, 100]
+
+print(return_value)
+# Output:
+# None
+```
+
 ## QuickSort-InPlace
 Use quicksort algorithm to return a sorted list. This is a *mutating* method: it modifies the input instead of returning an output.
 ```python
@@ -731,7 +752,7 @@ print(lst)
 # Output:
 # [1, 4, 20, 50, 100]
 
-print(sorted_lst)
+print(return_value)
 # Output:
 # None
 ```
@@ -770,7 +791,7 @@ print(lst)
 # Output:
 # [1, 4, 20, 50, 100]
 
-print(sorted_lst)
+print(return_value)
 # Output:
 # None
 ```
@@ -789,7 +810,7 @@ print(lst)
 # Output:
 # [1, 4, 20, 50, 100]
 
-print(sorted_lst)
+print(return_value)
 # Output:
 # None
 ```

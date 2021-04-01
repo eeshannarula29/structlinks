@@ -16,7 +16,55 @@ from typing import Any, Callable
 
 
 ########################################
-# Merge sort
+# Merge sort (In-place)
+########################################
+def in_place_mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> None:
+    """
+    Return a sorted list of the items in lst
+    using the merge sort algorithm.
+
+    This algorithm is heavily based off 'Approach 2' by Krikti,
+    https://www.geeksforgeeks.org/in-place-merge-sort/
+    """
+    _in_place_mergesort(lst, 0, len(lst), key)
+
+
+def _in_place_mergesort(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> None:
+    if e - b < 2:  # When there is only one element left in the list
+        return
+    else:
+        m = ((e - b) // 2) + b # Split the list in half
+
+        # Sort each half individual
+        _in_place_mergesort(lst, b, m, key)
+        _in_place_mergesort(lst, m, e, key)
+
+        # Merge and return the sorted half
+        return _in_place_merge(lst, b, e, key)
+
+
+def _in_place_merge(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> None:
+    """Return a single sorted list from two merged input lists."""
+
+    # The initial gap between swappable elements
+    gap = ((e - b + 1) + 1) // 2
+
+    while gap > 0:
+        for i in range(b, e - gap):
+            j = i + gap
+            if key(lst[j]) < key(lst[i]):
+                lst[j], lst[i] = lst[i], lst[j]
+
+        if gap <= 1:
+            gap = 0
+        else:
+            # The +1 forces the cieling of (gap / 2)
+            gap = (gap + 1) // 2
+
+
+
+########################################
+# Merge sort (Non-mutating)
 ########################################
 def mergesort(lst: list, key: Callable[[Any], Any] = (lambda x: x)) -> list:
     """
