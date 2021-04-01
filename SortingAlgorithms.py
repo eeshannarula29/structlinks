@@ -40,10 +40,10 @@ def _in_place_mergesort(lst: list, b: int, e: int, key: Callable[[Any], Any]) ->
         _in_place_mergesort(lst, m, e, key)
 
         # Merge and return the sorted half
-        return _in_place_merge(lst, b, m, e, key)
+        return _in_place_merge(lst, b, e, key)
 
 
-def _in_place_merge(lst: list, b: int, m: int, e: int, key: Callable[[Any], Any]) -> None:
+def _in_place_merge(lst: list, b: int, e: int, key: Callable[[Any], Any]) -> None:
     """Return a single sorted list from two merged input lists."""
 
     # The initial gap between swappable elements
