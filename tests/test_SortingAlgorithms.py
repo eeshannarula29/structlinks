@@ -117,9 +117,9 @@ class TestNoMutatingMergesort(BaseNoMutatingSort):
     algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(mergesort)
 
 
-# class TestInPlaceMergesort(BaseNoMutatingSort):
-#     """Test the non-mutating mergesort algorithm"""
-#     algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(in_place_mergesort)
+class TestInPlaceMergesort(BaseInPlaceSort):
+    """Test the non-mutating mergesort algorithm"""
+    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(in_place_mergesort)
 
 
 class TestInPlaceQuicksort(BaseInPlaceSort):
