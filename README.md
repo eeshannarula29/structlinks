@@ -21,8 +21,8 @@ References are mentioned at the bottom of the file.
 ## Current Sorting Algorithms
 
 - [Merge Sort](#MergeSort)
-- [Quick Sort (In Place)](#QuickSort(InPlace))
-- [Quick Sort (Non-Mutating)](#QuickSort(NonMutating))
+- [Quick Sort (In Place)](#QuickSort-InPlace)
+- [Quick Sort (Non-Mutating)](#QuickSort-NonMutating)
 - [Selection Sort](#SelectionSort)
 - [Insertion Sort](#InsertionSort)
 
@@ -717,7 +717,7 @@ print(sorted_lst)
 # [1, 4, 20, 50, 100]
 ```
 
-## QuickSort(InPlace)
+## QuickSort-InPlace
 Use quicksort algorithm to return a sorted list. This is a *mutating* method: it modifies the input instead of returning an output.
 ```python
 from NetLinks.SortingAlgorithms import quicksort
@@ -736,7 +736,7 @@ print(sorted_lst)
 # None
 ```
 
-## QuickSort(NonMutating)
+## QuickSort-NonMutating
 Use quicksort algorithm to return a sorted list. This is a *non-mutating* method: the input list will be preserved.
 Note that the runtime of this version is technically inferior to the mutating version of quicksort, above.
 ```python
