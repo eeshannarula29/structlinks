@@ -4,14 +4,16 @@ Because it exists in a /tests/ folder, it adds the
 current working directory to PYTHONPATH, in order to 'see'
 the functions it is testing
 """
+from SortingAlgorithms import *
+from LinkedList import *
+from DoublyLinkedList import *
 
 from typing import Optional, Callable
 
 # Add the root directory to PYTHONPATH
 import sys
-sys.path.append('.')
 
-from SortingAlgorithms import *
+sys.path.append('.')
 
 
 ########################################
@@ -57,6 +59,78 @@ class BaseNoMutatingSort:
 
         actual = self.algorithm(test_list, (lambda x: -x))
         expected = sorted(test_list, key=(lambda x: -x))
+
+        assert actual == expected
+
+    def test_unsorted_linked_list(self) -> None:
+        """Test algorithm on an unsorted list"""
+        test_list = LinkedList([9, 7, 5, 2, 4, 5, 3, 3, 2, 1, 10, 200])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_sorted_linked_list(self) -> None:
+        """Test algorithm on a sorted list"""
+        test_list = LinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_reversed_linked_list(self) -> None:
+        """Test algorithm on a reversed list"""
+        test_list = LinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_key_reverse_linked_list(self) -> None:
+        """Test algorithm on a list, sort with a reversing key."""
+        test_list = LinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        actual = self.algorithm(test_list, (lambda x: -x)).to_list()
+        expected = sorted(test_list.to_list(), key=(lambda x: -x))
+
+        assert actual == expected
+
+    def test_unsorted_doubly_linked_list(self) -> None:
+        """Test algorithm on an unsorted list"""
+        test_list = DoublyLinkedList([9, 7, 5, 2, 4, 5, 3, 3, 2, 1, 10, 200])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_sorted_doubly_linked_list(self) -> None:
+        """Test algorithm on a sorted list"""
+        test_list = DoublyLinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_reversed_doubly_linked_list(self) -> None:
+        """Test algorithm on a reversed list"""
+        test_list = DoublyLinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        actual = self.algorithm(test_list).to_list()
+        expected = sorted(test_list.to_list())
+
+        assert actual == expected
+
+    def test_key_reverse_doubly_linked_list(self) -> None:
+        """Test algorithm on a list, sort with a reversing key."""
+        test_list = DoublyLinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        actual = self.algorithm(test_list, (lambda x: -x)).to_list()
+        expected = sorted(test_list.to_list(), key=(lambda x: -x))
 
         assert actual == expected
 
@@ -111,15 +185,95 @@ class BaseInPlaceSort:
 
         assert actual == expected
 
+    def test_unsorted_linked_list(self) -> None:
+        """Test algorithm on an unsorted list"""
+        test_list = LinkedList([9, 7, 5, 2, 4, 5, 3, 3, 2, 1, 10, 200])
 
-class TestNoMutatingMergesort(BaseInPlaceSort):
-    """Test the non-mutating mergesort algorithm"""
-    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(mergesort)
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_sorted_linked_list(self) -> None:
+        """Test algorithm on an sorted list"""
+        test_list = LinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_reversed_linked_list(self) -> None:
+        """Test algorithm on a reversed list"""
+        test_list = LinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_key_reverse_linked_list(self) -> None:
+        """Test algorithm on a list, sort with a reversing key."""
+        test_list = LinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        self.algorithm(test_list, (lambda x: -x))
+        actual = test_list.to_list()
+        expected = sorted(test_list.to_list(), key=(lambda x: -x))
+
+        assert actual == expected
+
+    def test_unsorted_doubly_linked_list(self) -> None:
+        """Test algorithm on an unsorted list"""
+        test_list = DoublyLinkedList([9, 7, 5, 2, 4, 5, 3, 3, 2, 1, 10, 200])
+
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_sorted_doubly_linked_list(self) -> None:
+        """Test algorithm on an sorted list"""
+        test_list = DoublyLinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_reversed_doubly_linked_list(self) -> None:
+        """Test algorithm on a reversed list"""
+        test_list = DoublyLinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        expected = sorted(test_list.to_list())
+        self.algorithm(test_list)
+        actual = test_list.to_list()
+
+        assert actual == expected
+
+    def test_key_reverse_doubly_linked_list(self) -> None:
+        """Test algorithm on a list, sort with a reversing key."""
+        test_list = DoublyLinkedList([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+
+        self.algorithm(test_list, (lambda x: -x))
+        actual = test_list.to_list()
+        expected = sorted(test_list.to_list(), key=(lambda x: -x))
+
+        assert actual == expected
 
 
-class TestInPlaceMergesort(BaseNoMutatingSort):
+class TestNoMutatingMergesort(BaseNoMutatingSort):
     """Test the non-mutating mergesort algorithm"""
     algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(no_mut_mergesort)
+
+
+class TestInPlaceMergesort(BaseInPlaceSort):
+    """Test the mutating mergesort algorithm"""
+    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(mergesort)
 
 
 class TestInPlaceQuicksort(BaseInPlaceSort):
