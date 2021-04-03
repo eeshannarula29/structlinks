@@ -90,7 +90,7 @@ class Queue:
         """Extend self by other queue"""
         other_elements = other.to_list()
 
-        while not self.is_filled:
+        while not self.is_filled and not other_elements == []:
             self.enqueue(other_elements.pop())
 
     def __len__(self) -> int:
