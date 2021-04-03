@@ -268,6 +268,16 @@ class DoublyLinkedList:
             curr = self._last
             curr_index = len(self) - 1
 
+            if i == curr_index:
+                item = self._last.item
+
+                if self._last.prev:
+                    self._last.prev.next = None
+                    self._last = self._last.prev
+
+                self._length -= 1
+                return item
+
             while curr is not None:
                 if curr_index == i:
                     if curr.next:
