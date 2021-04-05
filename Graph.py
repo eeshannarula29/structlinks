@@ -2,7 +2,7 @@
 is taken from University of Toronto's CSC111 course."""
 
 from __future__ import annotations
-from typing import Any, Optional, Union
+from typing import Any, Optional, Union, Callable
 
 
 class _Vertex:
@@ -24,6 +24,90 @@ class _Vertex:
         self.item = item
         self.attributes = attributes if attributes else {}
         self.neighbours = neighbours if neighbours else {}
+        self.view = _VertexView(self)
+
+    def check_connected(self, target_item: Any, visited: set[_Vertex]) -> bool:
+        """Return whether this vertex is connected to a vertex corresponding to the target_item,
+        WITHOUT using any of the vertices in visited.
+
+        Preconditions:
+            - self not in visited
+        """
+        if self.item == target_item:
+            # Our base case: the target_item is the current vertex
+            return True
+        else:
+            visited.add(self)  # Add self to the set of visited vertices
+            for u in self.neighbours:
+                u_vertex = self.neighbours[u]['item']
+                if u_vertex not in visited:  # Only recurse on vertices that haven't been visited
+                    if u_vertex.check_connected(target_item, visited):
+                        return True
+
+            return False
+
+
+class _VertexView:
+    """Used to get/view a vertex"""
+
+    def __init__(self, _vertex: _Vertex) -> None:
+        self._vertex = _vertex
+
+    def __repr__(self) -> str:
+        """Return string representation of vertex"""
+
+        string_so_far = '{ \n'
+
+        for neighbour in self._vertex.neighbours:
+            string_so_far += \
+                '  {' + f'{neighbour}: {self._vertex.neighbours[neighbour]["attributes"]}' + '}, \n'
+
+        return string_so_far + '}'
+
+    def __setitem__(self, other: Any, properties: dict) -> None:
+        """Set a property of the edge between self and other
+
+        properties is of the form:
+        - {'property 1': value 1, 'property 2': value 2, ... 'property n': value n}
+        """
+        if other not in self._vertex.neighbours:
+            raise ValueError('The vertex value is not a neighbour to self, or does not exists')
+
+        if not isinstance(properties, dict):
+            raise TypeError('attribute properties should be a dictionary')
+
+        self._vertex.neighbours[other]['attributes'] = properties
+
+    def __getitem__(self, other: Any) -> dict:
+        """Return all the attributes of edge between self and other"""
+        if other not in self._vertex.neighbours:
+            return {}
+
+        return self._vertex.neighbours[other]['attributes']
+
+    @property
+    def attr(self) -> dict:
+        """Return the attribute dict of the vertex"""
+        return self._vertex.attributes
+
+    def check_connected(self, item: Any) -> bool:
+        """Check if vertex is connected to the item"""
+        return self._vertex.check_connected(item, set())
+
+    def adjacent(self, item: Any) -> bool:
+        """Return whether item is adjacent to self.
+        """
+        return item in self._vertex.neighbours
+
+    def get_neighbours(self) -> set:
+        """Return a set of the neighbours of vertex
+        """
+        return set(self._vertex.neighbours.keys())
+
+    @property
+    def degree(self) -> int:
+        """Return the degree of the vertex"""
+        return len(self._vertex.neighbours)
 
 
 class Graph:
@@ -45,20 +129,27 @@ class Graph:
         """
         if item not in self._vertices:
             self._vertices[item] = _Vertex(item, attributes=attributes if attributes else {})
+        else:
+            self._vertices[item].attributes.update(attributes if attributes else {})
 
-    def add_vertices(self, items: list[Any]):
+    def add_vertices(self, items: list[Any], global_attributes: Optional[dict] = None):
         """Add multiple vertices
 
         An items can look like:
         - [item 1, item 2, ..., item n]
         - [(item 1, attribute 1), (item 2, attribute 2), ..., (item n, attribute n)]
         - [(item 1, attribute 1), item2, item3, ..., (item n, attribute n)]
+
+        global_attributes will be added to all the vertices
         """
+        if not global_attributes:
+            global_attributes = {}
 
         for item in items:
 
             if isinstance(item, tuple) and len(item) == 2:
                 item_value, item_attributes = item
+                item_attributes.update(global_attributes)
                 self.add_vertex(item_value, attributes=item_attributes)
             else:
                 self.add_vertex(item)
@@ -85,9 +176,13 @@ class Graph:
             v1 = self._vertices[item1]
             v2 = self._vertices[item2]
 
-            # Add the new edge
-            v1.neighbours[item2] = {'item': v2, 'attributes': attributes if attributes else {}}
-            v2.neighbours[item1] = {'item': v1, 'attributes': attributes if attributes else {}}
+            if item1 not in v2.neighbours and item2 not in v1.neighbours:
+                # Add the new edge
+                v1.neighbours[item2] = {'item': v2, 'attributes': attributes if attributes else {}}
+                v2.neighbours[item1] = {'item': v1, 'attributes': attributes if attributes else {}}
+            else:
+                v1.neighbours[item2]['attributes'].update(attributes if attributes else {})
+                v2.neighbours[item1]['attributes'].update(attributes if attributes else {})
 
     def add_edges(self, edges: Union[list[tuple[Any, Any]], list[tuple[Any, Any, dict]]]) -> None:
         """Add multiple edges to the graph
@@ -171,13 +266,127 @@ class Graph:
         """Return the number of edges"""
         return len(self.edges)
 
-    def get_degree(self, item: Any) -> int:
-        """Return the degree of the item in the graph
+    def get_degree(self, item: Union[set, Any]) -> Union[dict, int]:
+        """Return the degree of the item in the graph if item is a single element
+        otherwise if item is a set of elements then it would return a dict of
+        elements mapped to their degrees
 
         Raise a ValueError if item does not appear as a vertex in this graph.
         """
+        # If item is a set of elements
+        if isinstance(item, set):
+            dict_so_far = {}
+
+            for element in item:
+                dict_so_far[element] = self.get_degree(element)
+
+            return dict_so_far
+        # if item is a single element
         if item in self._vertices:
-            v = self._vertices[item]
-            return len(v.neighbours)
+            return self[item].degree
         else:
+            raise ValueError('The element or one of the elements is not on the graph')
+
+    def __getitem__(self, item) -> _VertexView:
+        """Returns a object containing all the information about the neighbours of vertex,
+        and used to set/get properties of edges
+        """
+        if item not in self._vertices:
             raise ValueError
+
+        return self._vertices[item].view
+
+    def remove_vertex(self, item: Any) -> None:
+        """Delete item from the graph"""
+        if item in self._vertices:
+
+            for neighbour in self._vertices[item].neighbours:
+                self._vertices[neighbour].neighbours.pop(item)
+
+            self._vertices.pop(item)
+
+        else:
+            raise ValueError('The item is not in the graph')
+
+    def remove_edge(self, item1: Any, item2: Any) -> None:
+        """Remove edge between item1 and item2"""
+        if item1 in self._vertices and item2 in self._vertices:
+            if item1 in self.get_neighbours(item2):
+                self._vertices[item1].neighbours.pop(item2)
+                self._vertices[item2].neighbours.pop(item1)
+        else:
+            raise ValueError('One/both of item1, item2 is/are not in the graph')
+
+    def remove_vertices(self, items: list) -> None:
+        """Remove all the vertices in items"""
+        if not all(item in self._vertices for item in items):
+            raise ValueError('One or more items in the list are not present in the graph')
+
+        else:
+            for item in items:
+                self.remove_vertex(item)
+
+    def remove_edges(self, edges: list[tuple]) -> None:
+        """Remove all the edge pairs in <edges>"""
+        if not all(item1 in self._vertices and item2 in self._vertices
+                   for (item1, item2) in edges):
+            raise ValueError('One or more of the edge pairs have elements which are not in graph')
+
+        for (item1, item2) in edges:
+            self.remove_edge(item1, item2)
+
+    def add_global_attributes(self, attributes: dict) -> None:
+        """Add attributes to all the vertices in the graph"""
+        for item in self.vertices:
+            self[item].attr.update(attributes)
+
+    def sub_graph_by_value(self, predicate: Callable) -> Graph:
+        """Return a sub-graph of self, with vertices which pass the predicate function"""
+        subgraph = Graph()
+
+        subgraph.add_vertices([(item, self[item].attr)
+                               for item in self.vertices if predicate(item)])
+
+        vertices = subgraph.vertices
+
+        for (item1, item2) in self.edges:
+            if item1 in vertices and item2 in vertices:
+                subgraph.add_edge(item1, item2, self[item1][item2].copy())
+
+        return subgraph
+
+    def sub_graph_by_attribute(self, attribute: Any,
+                               predicate: Optional[Callable] = lambda x: True) -> Graph:
+        """Return a sub-graph of self, with vertices which contain attribute and
+         pass the predicate function for that attribute"""
+
+        subgraph = Graph()
+
+        subgraph.add_vertices([(item, self[item].attr)
+                               for item in self.vertices
+                               if attribute in self[item].attr and predicate(item)])
+
+        vertices = subgraph.vertices
+
+        for (item1, item2) in self.edges:
+            if item1 in vertices and item2 in vertices:
+                subgraph.add_edge(item1, item2, self[item1][item2].copy())
+
+        return subgraph
+
+    def union(self, other: Graph) -> Graph:
+        """Return a new graph which contains all the vertices of self and other. Attributes
+        for duplicates would be combined to also form a union."""
+
+        graph = Graph()
+
+        graph.add_vertices([(item, self[item].attr) for item in self.vertices])
+        graph.add_vertices([(item, other[item].attr) for item in other.vertices])
+
+        graph.add_edges([(item1, item2, self[item1][item2].copy())
+                         for (item1, item2) in self.edges])
+
+        graph.add_edges([(item1, item2, other[item1][item2].copy())
+                         for (item1, item2) in other.edges])
+
+        return graph
