@@ -32,6 +32,8 @@ class _Vertex:
 
         Preconditions:
             - self not in visited
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         if self.item == target_item:
             # Our base case: the target_item is the current vertex
@@ -45,6 +47,70 @@ class _Vertex:
                         return True
 
             return False
+
+    def get_connected(self, visited: set[_Vertex]) -> set:
+        """Return a set of all ITEMS connected to self by a path that does not use
+        any vertices in visited.
+
+        The items of the vertices in visited CANNOT appear in the returned set.
+
+        Preconditions:
+            - self not in visited
+
+        The base code is taken from University of Toronto's CSC111 course
+        """
+
+        all_in_visited = True
+
+        items_set = {self.item}
+
+        for neighbour in self.neighbours:
+
+            neighbour_vertex = self.neighbours[neighbour]['item']
+
+            if neighbour_vertex not in visited:
+                all_in_visited = False
+
+        if all_in_visited:
+            visited.add(self)
+            return items_set
+
+        else:
+            visited.add(self)
+
+            for neighbour in self.neighbours:
+
+                neighbour_vertex = self.neighbours[neighbour]['item']
+
+                if neighbour_vertex not in visited:
+                    items_set = items_set.union(neighbour_vertex.get_connected(visited))
+
+            return items_set
+
+    def spanning_graph(self, visited: set[_Vertex]) -> list[tuple]:
+        """Return a Graph that form a spanning tree of all vertices that are
+        connected to this vertex WITHOUT using any of the vertices in visited.
+
+        The edges are returned as a list of sets, where each set contains the two
+        ITEMS corresponding to an edge.
+
+        Preconditions:
+            - self not in visited
+
+        The base code is taken from University of Toronto's CSC111 course
+        """
+        edges_so_far = []
+
+        visited.add(self)
+
+        for neighbour in self.neighbours:
+            # Only recurse on vertices that haven't been visited
+            if self.neighbours[neighbour]['item'] not in visited:
+                edges_so_far.append((self.item, neighbour,
+                                     self.neighbours[neighbour]['attributes']))
+                edges_so_far.extend(self.neighbours[neighbour]['item'].spanning_graph(visited))
+
+        return edges_so_far
 
 
 class _VertexView:
@@ -94,6 +160,22 @@ class _VertexView:
         """Check if vertex is connected to the item"""
         return self._vertex.check_connected(item, set())
 
+    def get_connected(self) -> set:
+        """Return set of all elements connected to vertex"""
+        return self._vertex.get_connected(set())
+
+    def in_cycle(self) -> bool:
+        """Return whether vertex is in a cycle or not
+
+        The base code is taken from University of Toronto's CSC111 course
+        """
+
+        return any(self._vertex.neighbours[neighbour1]['item'].check_connected(neighbour2,
+                                                                               {self._vertex})
+                   for neighbour1 in self._vertex.neighbours
+                   for neighbour2 in self._vertex.neighbours
+                   if neighbour1 != neighbour2)
+
     def adjacent(self, item: Any) -> bool:
         """Return whether item is adjacent to self.
         """
@@ -109,9 +191,18 @@ class _VertexView:
         """Return the degree of the vertex"""
         return len(self._vertex.neighbours)
 
+    def create_spanning_graph(self) -> Graph:
+        """Create a spanning graph from this vertex"""
+        graph = Graph()
+        edges = self._vertex.spanning_graph(set())
+        graph.add_edges(edges)
+        return graph
+
 
 class Graph:
     """A graph.
+
+    The base code for this class taken from University of Toronto's CSC111 course
     """
     # Private Instance Attributes:
     #     - _vertices: A collection of the vertices contained in this graph.
@@ -126,6 +217,8 @@ class Graph:
         """Add a vertex with the given item to this graph.
 
         The new vertex is not adjacent to any other vertices.
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         if item not in self._vertices:
             self._vertices[item] = _Vertex(item, attributes=attributes if attributes else {})
@@ -141,6 +234,8 @@ class Graph:
         - [(item 1, attribute 1), item2, item3, ..., (item n, attribute n)]
 
         global_attributes will be added to all the vertices
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         if not global_attributes:
             global_attributes = {}
@@ -163,6 +258,8 @@ class Graph:
         """Add an edge between the two vertices with the given items in this graph,
         and with the give attributes. attributes here is the list of properties if
         the edge between the two items.
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         # check if item1 != item2
         if item1 != item2:
@@ -195,6 +292,8 @@ class Graph:
 
                 if edge is of length 2 then it would look like:
                 - (item1, item2, edge-attributes)
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         for edge in edges:
             if not (len(edge) == 2 or len(edge) == 3):
@@ -238,6 +337,8 @@ class Graph:
         """Return whether item1 and item2 are adjacent vertices in this graph.
 
         Return False if item1 or item2 do not appear as vertices in this graph.
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         if item1 in self._vertices and item2 in self._vertices:
             return item2 in self._vertices[item1].neighbours
@@ -249,6 +350,8 @@ class Graph:
         """Return a set of the neighbours of the given item.
 
         Raise a ValueError if item does not appear as a vertex in this graph.
+
+        The base code is taken from University of Toronto's CSC111 course
         """
         if item in self._vertices:
             v = self._vertices[item]
@@ -390,3 +493,25 @@ class Graph:
                          for (item1, item2) in other.edges])
 
         return graph
+
+    @property
+    def is_connected(self) -> bool:
+        return all(self[item1].check_connected(item2)
+                   for item1 in self.vertices for item2 in self.vertices)
+
+    def create_spanning_graph(self) -> Graph:
+        """Return a spanning graph of self
+
+        Precondition:
+        - self.is_connected
+
+        The base code is taken from University of Toronto's CSC111 course
+        """
+        if not self.is_connected:
+            raise TypeError('The graph should be connected')
+
+        if self.vertices_count > 0:
+            return self[list(self.vertices)[0]].create_spanning_graph()
+
+        else:
+            return Graph()
