@@ -1,19 +1,10 @@
 """This file contains tests for SortingAlgorithms.py.
-
-Because it exists in a /tests/ folder, it adds the
-current working directory to PYTHONPATH, in order to 'see'
-the functions it is testing
 """
 from SortingAlgorithms import *
 from LinkedList import *
 from DoublyLinkedList import *
 
 from typing import Optional, Callable
-
-# Add the root directory to PYTHONPATH
-import sys
-
-sys.path.append('.')
 
 
 ########################################
