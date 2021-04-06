@@ -5,8 +5,8 @@ A re-implementation of several sorting algorithms, including:
     - Selection sort
     - Insertion sort
 
-Many of these sort are inspired by the implementation of the CSC111
-University of Toronto Course
+Many of these sort are inspired by their implementations in the CSC111
+University of Toronto Course.
 
 Implementation Notes:
     - Non-mutating algorithms are explicitely prefixed with no_mut_
