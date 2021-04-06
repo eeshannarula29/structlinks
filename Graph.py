@@ -112,6 +112,23 @@ class _Vertex:
 
         return edges_so_far
 
+    def paths_to(self, item: Any, visited: set, current_path: list, paths: set) -> None:
+        """Return a set of all the paths between self and item"""
+
+        visited.add(self.item)
+        current_path.append(self.item)
+
+        if self.item == item:
+            paths.add(tuple(current_path))
+
+        else:
+            for neighbour in self.neighbours:
+                if neighbour not in visited:
+                    self.neighbours[neighbour]['item'].paths_to(item, visited, current_path, paths)
+
+        current_path.pop()
+        visited.remove(self.item)
+
 
 class _VertexView:
     """Used to get/view a vertex"""
@@ -197,6 +214,12 @@ class _VertexView:
         edges = self._vertex.spanning_graph(set())
         graph.add_edges(edges)
         return graph
+
+    def get_all_paths_to(self, item: Any) -> set:
+        """Return all the paths to the item from self"""
+        paths = set()
+        self._vertex.paths_to(item, set(), [], paths)
+        return paths
 
 
 class Graph:
