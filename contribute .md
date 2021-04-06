@@ -1,6 +1,6 @@
 ---
-title: contributing
-filename: contributing
+title: contribute
+filename: contribute
 --- 
 
 # Contributing to NetLinks
