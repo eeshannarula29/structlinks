@@ -12,7 +12,7 @@ University of Toronto, and currently taking CSC111.
 - [Graphs](https://eeshannarula29.github.io/NetLinks/graphs)  
 - [Linked Lists](#LinkedLists)
 - [Doubly Linked Lists](#DoublyLinkedLists)
-- [Stacks](#Stacks)
+- [Stacks](https://eeshannarula29.github.io/NetLinks/stacks)
 - [Queues](#Queues)
 
 ## Current Sorting Algorithms
