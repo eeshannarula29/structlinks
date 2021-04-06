@@ -1,3 +1,9 @@
+---
+title: BinaryTrees
+layout: jekyll-theme-architect
+filename: binary_trees.md
+--- 
+
 # BinarySearchTrees
 
 ## Initialize a BST
