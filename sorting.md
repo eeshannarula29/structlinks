@@ -5,6 +5,8 @@ filename: sorting
 
 # Sorting Algorithms
 
+All the sorting algorithms in this module work with `lists`, `LinkedLists` and `DoublyLinkedLists`
+
 ## MergeSort-InPlace
 Use an inplace mergesort algorithm to return a sorted list.
 This version is inferior (in terms of running time) to the non-mutating implementation of mergesort.
