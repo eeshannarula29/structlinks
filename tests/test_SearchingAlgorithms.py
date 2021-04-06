@@ -81,4 +81,4 @@ class TestLinearSearch(BaseSearch):
 
 class TestBinarySearch(BaseSearch):
     """Test the mutating selection sort algorithm"""
-    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(linear_search)
+    algorithm: Optional[tuple[Callable[[list], None]]] = staticmethod(binary_search)

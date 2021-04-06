@@ -1,5 +1,6 @@
 """
 A re-implementation of several searching algorithms, including:
+    - Linear Search
     - Binary Search
 
 Many of these sort are inspired by their implementations in the CSC111
@@ -41,7 +42,7 @@ def binary_search(lst: list, item: Any) -> bool:
         # Check if the middle item is the target
         if lst[m] == item:
             return True
-        elif lst[m] < item:
+        elif lst[m] > item:
             e = m
         else:
             b = m + 1
