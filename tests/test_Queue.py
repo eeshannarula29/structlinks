@@ -2,10 +2,6 @@
 
 from Queue import *
 
-# Add the root directory to PYTHONPATH
-import sys
-sys.path.append('.')
-
 
 class TestQueue:
 

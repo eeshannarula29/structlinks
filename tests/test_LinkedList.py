@@ -1,9 +1,5 @@
 """The file contains unit tests for linked list class"""
 
-# Add the root directory to PYTHONPATH
-import sys
-sys.path.append('.')
-
 from LinkedList import LinkedList
 
 

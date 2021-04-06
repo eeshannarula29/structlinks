@@ -4,11 +4,6 @@ This file contains tests for the Stack Class
 
 from Stack import *
 
-# Add the root directory to PYTHONPATH
-import sys
-
-sys.path.append('.')
-
 
 class TestStack:
 
