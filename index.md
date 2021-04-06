@@ -8,7 +8,7 @@ University of Toronto, and currently taking CSC111.
 
 ## Current DataTypes
 
-- [Binary Search Trees](#BinarySearchTrees)
+- [Binary Search Trees](https://github.com/eeshannarula29/NetLinks/blob/gh-pages/binary_trees.md)
 - [Graphs](#Graphs)  
 - [Linked Lists](#LinkedLists)
 - [Doubly Linked Lists](#DoublyLinkedLists)
