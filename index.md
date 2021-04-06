@@ -26,7 +26,7 @@ University of Toronto, and currently taking CSC111.
 
 ## Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
-check our [GuideToContributing](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) page for further information on how you can contribute.
+check our [GuideToContributing](https://eeshannarula29.github.io/NetLinks/contribute) page for further information on how you can contribute.
 
 ## Learn Github
 These are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with.
