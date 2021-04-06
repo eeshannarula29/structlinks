@@ -41,7 +41,7 @@ def binary_search(lst: list, item: Any) -> bool:
         # Check if the middle item is the target
         if lst[m] == item:
             return True
-        elif lst[m] < item:
+        elif lst[m] > item:
             e = m
         else:
             b = m + 1
