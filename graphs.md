@@ -161,6 +161,22 @@ print(graph.is_connected)  # check if all vertices in the graph are connected to
 # Output: False
 ```
 
+## Path Finding
+All the algorithms for finding the shortest path are located in the SearchingAlgorithms module,
+however one can find all the paths from a vertex to another vertex with `get_all_paths_to` function. 
+```python
+from NetLinks.Graph import Graph
+
+graph = Graph()
+
+graph.add_edges([(1, 2), (2, 3), (4, 5), (5, 6), (6, 1), (1, 3)])
+
+paths = g[2].get_all_paths_to(3)  # <--- Get all the paths between 2 and 3
+
+print(paths)
+# Output: {(2, 3), (2, 1, 3)}
+```
+
 ## Remove Vertices and Edges
 
 Removing vertices and edges is similar to adding them. The functions used are `graph.remove_vertex`, `graph.remove_vertices`,
