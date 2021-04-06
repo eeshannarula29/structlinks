@@ -1,6 +1,5 @@
 ---
 title: BinaryTrees
-layout: jekyll-theme-architect
 filename: binary_trees
 --- 
 
