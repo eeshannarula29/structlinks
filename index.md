@@ -1,7 +1,6 @@
 ## Welcome to NetLinks
 
-Easily access different DataTypes, like Linked list, Doubly Linked lists, Trees, Binary trees,
-and may more. You can even visualize them. It also can be used to sort and search items in these data types.
+Easily Access and visualize different Data structures including Linked lists, Doubly Linked lists, Trees, Binary trees, Graphs, Stacks, and Queues.
 
 I should also mention that much of the Basic data class structure is take from the
 University of Toronto's CSC111 course. I and other collaborators are students at
