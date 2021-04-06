@@ -1,5 +1,5 @@
 ---
-title: GuideToContributing
+title: contributing
 filename: contributing
 --- 
 
