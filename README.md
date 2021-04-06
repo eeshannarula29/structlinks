@@ -6,6 +6,8 @@ I should also mention that much of the Basic data class structure is take from t
 University of Toronto's CSC111 course. I and other collaborators are students at
 University of Toronto, and currently taking CSC111.
 
+`documentation`: https://eeshannarula29.github.io/NetLinks/
+
 ## Current DataTypes
 
 - [Binary Search Trees](https://eeshannarula29.github.io/NetLinks/binary_trees)
