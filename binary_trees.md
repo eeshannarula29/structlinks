@@ -1,7 +1,7 @@
 ---
 title: BinaryTrees
 layout: jekyll-theme-architect
-filename: binary_trees.md
+filename: binary_trees
 --- 
 
 # BinarySearchTrees
