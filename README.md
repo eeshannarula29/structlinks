@@ -1,4 +1,4 @@
-# NetLinks
+# StructLinks
 
 Easily Access and visualize different Data structures including Linked lists, Doubly Linked lists, Trees, Binary trees, Graphs, Stacks, and Queues.
 
@@ -35,7 +35,7 @@ University of Toronto, and currently taking CSC111.
 - [Depth First Search](https://eeshannarula29.github.io/NetLinks/searching)
 - [Dijkstra's Search](https://eeshannarula29.github.io/NetLinks/searching)
 
-## Contribute to NetLinks
+## Contribute to StructLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
 check our [GuideToContributing](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) page for further information on how you can contribute.
 
