@@ -7,7 +7,7 @@ filename: graphs
 
 ## Initialize a Graph
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 ```
@@ -18,7 +18,7 @@ graph = Graph()
 A vertex can we added simply by calling `graph.add_vertex`. The function takes in the value of the vertex. 
 Additional `Attributes` of the vertex can be passed in as a dictionary. 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -38,7 +38,7 @@ add vertices with attributes the format of the tuple should be `[ ... (value, at
 contain both elements with no attributes and elements with attributes. 
 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -64,7 +64,7 @@ a new vertex with that value, and adds an edge. Note That if an edge already exi
 of the edge would be update if `add_edge` is called.
 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -93,7 +93,7 @@ which would look like `[... (item1, item2, attributes dict) ...]`. Note that sim
 a new vertex with that value, and adds an edge. 
 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -165,7 +165,7 @@ print(graph.is_connected)  # check if all vertices in the graph are connected to
 All the algorithms for finding the shortest path are located in the `SearchingAlgorithms` module,
 however one can find all the paths from a vertex to another vertex with `get_all_paths_to` function. 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -230,7 +230,7 @@ print(graph.edges)
 ## Get/Set the Attributes
 
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -273,7 +273,7 @@ graph.add_global_attributes({'weight': 1})  # add this attribute to all the vert
 
 ## Graph Generator Functions
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
@@ -323,7 +323,7 @@ print(union.edges)
 
 ## Printing Graphs
 ```python
-from NetLinks.Graph import Graph
+from structlinks import Graph
 
 graph = Graph()
 
