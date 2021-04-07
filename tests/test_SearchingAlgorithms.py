@@ -6,7 +6,7 @@ from SearchingAlgorithms import *
 
 
 ########################################
-# Base tests for searching algorithms
+# Base tests for List searching algorithms
 ########################################
 class BaseSearch:
     """The base class for the series of tests that
@@ -78,6 +78,7 @@ class TestLinearSearch(BaseSearch):
         lst = [2, 3, 1, 2, 7, 9, 8, 5, 3, 4]
 
         assert self.algorithm(lst, 7)
+
 
 class TestBinarySearch(BaseSearch):
     """Test the mutating selection sort algorithm"""
