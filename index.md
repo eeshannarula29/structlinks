@@ -6,31 +6,38 @@ I should also mention that much of the Basic data class structure is take from t
 University of Toronto's CSC111 course. I and other collaborators are students at
 University of Toronto, and currently taking CSC111.
 
-# Current DataTypes
 
-- [Binary Search Trees](https://eeshannarula29.github.io/NetLinks/binary_trees)
-- [Graphs](https://eeshannarula29.github.io/NetLinks/graphs)  
-- [Linked Lists](https://eeshannarula29.github.io/NetLinks/linked_lists)
-- [Doubly Linked Lists](https://eeshannarula29.github.io/NetLinks/doubly_linked_lists)
-- [Stacks](https://eeshannarula29.github.io/NetLinks/stacks)
-- [Queues](https://eeshannarula29.github.io/NetLinks/queues)
+## Download
+```shell
+$ pip install structlinks
+```
 
-# Current Sorting Algorithms
+## Data Structures
 
-- [Merge Sort (In Place)](https://eeshannarula29.github.io/NetLinks/sorting)
-- [Merge Sort (Non-Mutating)](https://eeshannarula29.github.io/NetLinks/sorting)
-- [Quick Sort (In Place)](https://eeshannarula29.github.io/NetLinks/sorting)
-- [Quick Sort (Non-Mutating)](https://eeshannarula29.github.io/NetLinks/sorting)
-- [Selection Sort](https://eeshannarula29.github.io/NetLinks/sorting)
-- [Insertion Sort](https://eeshannarula29.github.io/NetLinks/sorting)
+- [Binary Search Trees](https://eeshannarula29.github.io/structlinks/binary_trees)
+- [Graphs](https://eeshannarula29.github.io/structlinks/graphs)  
+- [Linked Lists](https://eeshannarula29.github.io/structlinks/linked_lists)
+- [Doubly Linked Lists](https://eeshannarula29.github.io/structlinks/doubly_linked_lists)
+- [Stacks](https://eeshannarula29.github.io/structlinks/stacks)
+- [Queues](https://eeshannarula29.github.io/structlinks/queues)
 
-# Current Searching And Path finding Algorithms
+## Sorting Algorithms
 
-- [Linear Search](https://eeshannarula29.github.io/NetLinks/searching)
-- [Binary Search](https://eeshannarula29.github.io/NetLinks/searching)
-- [Breadth First Search](https://eeshannarula29.github.io/NetLinks/searching)
-- [Depth First Search](https://eeshannarula29.github.io/NetLinks/searching)
-- [Dijkstra's Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Merge Sort (In Place)](https://eeshannarula29.github.io/structlinks/sorting)
+- [Merge Sort (Non-Mutating)](https://eeshannarula29.github.io/structlinks/sorting)
+- [Quick Sort (In Place)](https://eeshannarula29.github.io/structlinks/sorting)
+- [Quick Sort (Non-Mutating)](https://eeshannarula29.github.io/structlinks/sorting)
+- [Selection Sort](https://eeshannarula29.github.io/structlinks/sorting)
+- [Insertion Sort](https://eeshannarula29.github.io/structlinks/sorting)
+
+
+## Searching And Path finding Algorithms
+
+- [Linear Search](https://eeshannarula29.github.io/structlinks/searching)
+- [Binary Search](https://eeshannarula29.github.io/structlinks/searching)
+- [Breadth First Search](https://eeshannarula29.github.io/structlinks/searching)
+- [Depth First Search](https://eeshannarula29.github.io/structlinks/searching)
+- [Dijkstra's Search](https://eeshannarula29.github.io/structlinks/searching)
 
 # Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
