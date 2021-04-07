@@ -14,8 +14,8 @@ Implementation Notes:
         has a default value for key, (lambda x: x) which does not modify it's input
 """
 from typing import Any, Callable, Union
-from DoublyLinkedList import DoublyLinkedList
-from LinkedList import LinkedList
+from structlinks.DoublyLinkedList import DoublyLinkedList
+from structlinks.LinkedList import LinkedList
 
 
 ########################################
