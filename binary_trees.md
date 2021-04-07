@@ -12,7 +12,7 @@ by constructing a tree from scratch.
 
 ### From list
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 
@@ -28,7 +28,7 @@ print(bst)
 
 ### From Scratch
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree(7)
 
@@ -57,7 +57,7 @@ print(bst)
 
 ### Branched Form
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 
@@ -84,7 +84,7 @@ print(bst)
 
 ### Indented Form
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20, 30, 3])
 
@@ -101,7 +101,7 @@ bst.display(indented = True)
 ```
 ## Properties
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 
@@ -141,7 +141,7 @@ print(bst.is_balanced) # Weather tree is balanced
 ## Insert Item in BST
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 4, 10, 20])
 
@@ -169,7 +169,7 @@ print(bst)
 ## Remove Item from BST
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 
@@ -197,7 +197,7 @@ print(bst)
 ## Convert to List
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([2, 1, 3, 5, 4])
 
@@ -210,7 +210,7 @@ print(bst.to_list())
 ## Item in BST
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([2, 1, 3, 3, 5, 4])
 
@@ -226,7 +226,7 @@ print(100 in bst)
 ## Invert the BST
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 
@@ -254,7 +254,7 @@ print(bst)
 ## Balance the BST
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree(5)
 right = BinarySearchTree(6)
@@ -285,7 +285,7 @@ print(bst)
 
 ### Mutate existing tree
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 
@@ -312,7 +312,7 @@ print(bst)
 
 ### Creating new Mapped BST
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 
@@ -349,7 +349,7 @@ print(bst)  # bst did not change
 ## Some other methods
 
 ```python
-from NetLinks.BinaryTree import BinarySearchTree
+from structlinks import BinarySearchTree
 
 bst = BinarySearchTree.create_tree([1, 2, 3, 4, 5])
 
