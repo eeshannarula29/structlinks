@@ -7,7 +7,7 @@ filename: stacks
 
 ## Initialize a stack
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 # initialize empty stack
 stack = Stack()
@@ -31,7 +31,7 @@ print(stack_with_list)
 ## Push Elements 
 
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack = Stack([1, 2])
 
@@ -55,7 +55,7 @@ print(stack)
 
 ## Push multiple Elements
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack = Stack([1, 2])
 
@@ -81,7 +81,7 @@ print(stack)
 
 ## Pop Elements
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack = Stack([1, 2])
 
@@ -103,7 +103,7 @@ print(stack)
 
 ## Extend and Add Stacks
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack1 = Stack([1, 2])
 stack2 = Stack([3, 4])
@@ -135,7 +135,7 @@ print(stack1)
 
 ## Map Stack to a function
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack = Stack([1, 2])
 
@@ -166,7 +166,7 @@ print(stack)  # <---- stack did not get mutated
 
 ## Invert a Stack
 ```python
-from NetLinks.Stack import Stack
+from structlinks import Stack
 
 stack = Stack([1, 2, 3])
 
