@@ -48,7 +48,7 @@ print(binary_search(lst, 0))
 
 #### Breadth First Search
 ```python
-from structlinks import Graphs
+from structlinks import Graph
 from structlinks.searching_algorithms import breadth_first_search
 
 graph = Graph()
@@ -69,7 +69,7 @@ print(non_existing_path)
 
 #### Depth First Search
 ```python
-from structlinks import Graphs
+from structlinks import Graph
 from structlinks.searching_algorithms import depth_first_search
 
 graph = Graph()
@@ -91,7 +91,7 @@ print(non_existing_path)
 ### Algorithms For Weighted Graphs
 
 ```python
-from structlinks import Graphs
+from structlinks import Graph
 
 graph = Graph()
 
