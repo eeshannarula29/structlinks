@@ -13,7 +13,7 @@ The list seaching algorithms can be used with `Lists`, `LinkedLists`, and `Doubl
 ### Linear Search
  
 ```python
-from NetLinks.SearchingAlgorithms import linear_search
+from structlinks.searching_algorithms import linear_search
 
 # initalize a list
 lst = [1, 100, 4, -1, 5]
@@ -30,7 +30,7 @@ print(linear_search(lst, 0))
 Note that for binary search the list to be searched , should be `sorted`
 
 ```python
-from NetLinks.SearchingAlgorithms import binary_search
+from structlinks.searching_algorithms import binary_search
 
 # initalize a sorted list
 lst = [-1, 1, 4, 5, 100]
@@ -48,8 +48,8 @@ print(binary_search(lst, 0))
 
 #### Breadth First Search
 ```python
-from NetLinks.Graphs import Graphs
-from NetLinks.SearchingAlgorithms import breadth_first_search
+from structlinks import Graphs
+from structlinks.searching_algorithms import breadth_first_search
 
 graph = Graph()
 
@@ -69,8 +69,8 @@ print(non_existing_path)
 
 #### Depth First Search
 ```python
-from NetLinks.Graphs import Graphs
-from NetLinks.SearchingAlgorithms import depth_first_search
+from structlinks import Graphs
+from structlinks.searching_algorithms import depth_first_search
 
 graph = Graph()
 
@@ -91,7 +91,7 @@ print(non_existing_path)
 ### Algorithms For Weighted Graphs
 
 ```python
-from NetLinks.Graphs import Graphs
+from structlinks import Graphs
 
 graph = Graph()
 
@@ -121,7 +121,7 @@ graph.add_edges([(0, 1, {'weight': 4}),
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to a specific `target`
 
 ```python 
-from NetLinks.SearchingAlgorithms import dijkstra_search_target
+from structlinks.searching_algorithms import dijkstra_search_target
 
 path = dijkstra_search_target(graph, origin = 0, target: 4, metric: 'weight')
 
@@ -133,7 +133,7 @@ print(path)
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to all the other vertices.
 
 ```python 
-from NetLinks.SearchingAlgorithms import dijkstra_search_target
+from structlinks.searching_algorithms import dijkstra_search_target
 
 paths = dijkstra_search_all(graph, origin = 0, metric: 'weight') 
 
