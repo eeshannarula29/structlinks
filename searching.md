@@ -115,7 +115,7 @@ graph.add_edges([(0, 1, {'weight': 4}),
 ```
 ##### This is how the graph looks:
 
-<img src="Fig-11.jpg" class="img-responsive" alt=""> </div>
+<img src="Fig-11.jpg" class="img-responsive" alt="">
 
 #### Dijkstra's Search Algorithm For Single Path
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to a specific `target`
