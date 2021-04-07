@@ -99,6 +99,11 @@ class Queue:
     def map(self, key: Callable) -> None:
         self._items = self._items.map(key)
 
+    def update(self) -> None:
+        """Update the order of the queue"""
+        if self._metric:
+            quicksort(self._items, self._metric)
+
     def display(self, key: Optional[Callable] = lambda x: x) -> None:
         string_so_far = ''
 
