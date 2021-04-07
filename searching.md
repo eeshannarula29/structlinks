@@ -113,9 +113,9 @@ graph.add_edges([(0, 1, {'weight': 4}),
                  (3, 5, {'weight': 14})])
   
 ```
+##### This is how the graph looks:
 
-##### This is how the Graph looks
-![graph](https://github.com/eeshannarula29/NetLinks/blob/gh-pages/Fig-11.jpg)
+<img src="Fig-11.jpg" class="img-responsive" alt=""> </div>
 
 #### Dijkstra's Search Algorithm For Single Path
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to a specific `target`
