@@ -8,7 +8,7 @@ filename: queues
 ## Initialize a Normal Queue
 
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # initialize empty queue
 queue = Queue()
@@ -25,7 +25,7 @@ print(queue)
 
 ## Initialize a Priority Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 priority_func = lambda x: len(x)
 
@@ -42,7 +42,7 @@ print(queue)
 Add a limit to the queue to limit the number of elements in a queue, This can be done by adding limit
 attribute while initializing a queue.
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 queue = Queue(['hi', 'hello', 'hey'], limit = 5)
 ```
@@ -51,7 +51,7 @@ queue = Queue(['hi', 'hello', 'hey'], limit = 5)
 Queue and Priority Queue are interchangeable and can be converted from one to another
 ### Queue --> Priority Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue
 queue = Queue(['hi', 'hello', 'hey'])
@@ -64,7 +64,7 @@ queue.change_metric(priority_func)
 ```
 ### Priority Queue --> Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # define a priority function
 priority_func = lambda x: len(x)
@@ -78,7 +78,7 @@ queue.change_metric(None)
 
 ## Change Limit 
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue with limit 
 queue = Queue(['hi', 'hello', 'hey'], limit = 3)
@@ -90,7 +90,7 @@ queue.change_limit(None)  # <---- removes the limit
 
 ## Check for Empty / Filled Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue with limit 
 queue = Queue(['hi', 'hello', 'hey'], limit = 3)
@@ -108,7 +108,7 @@ print(queue.is_empty)
 The function used to enqueue/push element from queue, takes constant time. If the limit of the queue has been obtained 
 the `QueueLimitReachedError` will be raised.
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue
 queue = Queue([100, 200, 300])
@@ -132,7 +132,7 @@ print(queue)
 The function used to Dequeue/Pop element, takes constant time. If the queue is empty then
 the `EmptyQueueError` will be raised.
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue
 queue = Queue([100, 200, 300])
@@ -158,7 +158,7 @@ print(queue)
 
 ## Extend Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 q1 = Queue([100, 200, 300])
 q2 = Queue([400, 500, 600])
@@ -174,7 +174,7 @@ print(q2)
 
 ## Map a Queue
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 
 # Initialize a queue
 queue = Queue([1, 2, 3])
@@ -195,7 +195,7 @@ print(queue)
 ## Printing Custom Queues
 Queues can be printed to get specific properties of a elements in the queue. 
 ```python
-from NetLinks.Queue import Queue
+from structlinks import Queue
 from dataclasses import dataclass
 
 @dataclass
