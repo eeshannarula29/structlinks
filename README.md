@@ -8,7 +8,7 @@ University of Toronto, and currently taking CSC111.
 
 `documentation`: https://eeshannarula29.github.io/NetLinks/
 
-## Current DataTypes
+## Data Structures
 
 - [Binary Search Trees](https://eeshannarula29.github.io/NetLinks/binary_trees)
 - [Graphs](https://eeshannarula29.github.io/NetLinks/graphs)  
@@ -17,7 +17,7 @@ University of Toronto, and currently taking CSC111.
 - [Stacks](https://eeshannarula29.github.io/NetLinks/stacks)
 - [Queues](https://eeshannarula29.github.io/NetLinks/queues)
 
-## Current Sorting Algorithms
+## Sorting Algorithms
 
 - [Merge Sort (In Place)](https://eeshannarula29.github.io/NetLinks/sorting)
 - [Merge Sort (Non-Mutating)](https://eeshannarula29.github.io/NetLinks/sorting)
@@ -25,6 +25,15 @@ University of Toronto, and currently taking CSC111.
 - [Quick Sort (Non-Mutating)](https://eeshannarula29.github.io/NetLinks/sorting)
 - [Selection Sort](https://eeshannarula29.github.io/NetLinks/sorting)
 - [Insertion Sort](https://eeshannarula29.github.io/NetLinks/sorting)
+
+
+## Searching And Path finding Algorithms
+
+- [Linear Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Binary Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Breadth First Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Depth First Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Dijkstra's Search](https://eeshannarula29.github.io/NetLinks/searching)
 
 ## Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
