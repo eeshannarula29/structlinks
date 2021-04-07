@@ -24,6 +24,14 @@ University of Toronto, and currently taking CSC111.
 - [Selection Sort](https://eeshannarula29.github.io/NetLinks/sorting)
 - [Insertion Sort](https://eeshannarula29.github.io/NetLinks/sorting)
 
+# Current Searching And Path finding Algorithms
+
+- [Linear Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Binary Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Breadth First Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Depth First Search](https://eeshannarula29.github.io/NetLinks/searching)
+- [Dijkstra's Search](https://eeshannarula29.github.io/NetLinks/searching)
+
 # Contribute to NetLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
 check our [GuideToContributing](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) page for further information on how you can contribute.
