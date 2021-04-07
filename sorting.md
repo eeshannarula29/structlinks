@@ -11,7 +11,7 @@ All the sorting algorithms in this module work with `lists`, `LinkedLists` and `
 Use an inplace mergesort algorithm to return a sorted list.
 This version is inferior (in terms of running time) to the non-mutating implementation of mergesort.
 ```python
-from NetLinks.SortingAlgorithms import mergesort
+from structlinks.sorting_algorithms import mergesort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -30,7 +30,7 @@ print(return_value)
 ## MergeSort-NonMutating
 Use mergesort algorithm to return a sorted list.
 ```python
-from NetLinks.SortingAlgorithms import no_mut_mergesort
+from structlinks.sorting_algorithms import no_mut_mergesort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -50,7 +50,7 @@ print(sorted_lst)
 ## QuickSort-InPlace
 Use quicksort algorithm to return a sorted list. This is a *mutating* method: it modifies the input instead of returning an output.
 ```python
-from NetLinks.SortingAlgorithms import quicksort
+from structlinks.sorting_algorithms import quicksort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -70,7 +70,7 @@ print(return_value)
 Use quicksort algorithm to return a sorted list. This is a *non-mutating* method: the input list will be preserved.
 Note that the runtime of this version is technically inferior to the mutating version of quicksort, above.
 ```python
-from NetLinks.SortingAlgorithms import no_mut_quicksort
+from structlinks.sorting_algorithms import no_mut_quicksort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -89,7 +89,7 @@ print(sorted_lst)
 ## SelectionSort
 Use the selection sort algorithm to return a sorted list. This is a mutating method that changes the input list.
 ```python
-from NetLinks.SortingAlgorithms import selection_sort
+from structlinks.sorting_algorithms import selection_sort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -108,7 +108,7 @@ print(return_value)
 ## InsertionSort
 Use the insertion sort algorithm to return a sorted list. Like selection sort, this is a mutating algorithm that modifies it's input
 ```python
-from NetLinks.SortingAlgorithms import insertion_sort
+from structlinks.sorting_algorithms import insertion_sort
 
 # initialize a list
 lst = [1, 100, 50, 20, 4]
@@ -129,7 +129,7 @@ Each sorting algorithm accepts an optional `key` parameter: pass in a function t
 
 For example, if we wanted to sort the list from largest to smallest (rather than smallest to largest, as is default), we can:
 ```python
-from NetLinks.SortingAlgorithms import insertion_sort
+from structlinks.sorting_algorithms import insertion_sort
 
 # Define a function that reverses the weighting of integers
 def invert(x: int) -> int:
