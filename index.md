@@ -1,4 +1,4 @@
-# Welcome to NetLinks
+# Welcome to StructLinks
 
 Easily Access and visualize different Data structures including Linked lists, Doubly Linked lists, Trees, Binary trees, Graphs, Stacks, and Queues.
 
@@ -39,9 +39,9 @@ $ pip install structlinks
 - [Depth First Search](https://eeshannarula29.github.io/structlinks/searching)
 - [Dijkstra's Search](https://eeshannarula29.github.io/structlinks/searching)
 
-# Contribute to NetLinks
+# Contribute to StructLinks
 We are very glad 😃 that you want to contribute to our project. We welcome you to our communtiy. Please
-check our [GuideToContributing](https://github.com/eeshannarula29/NetLinks/blob/main/CONTRIBUTING.md) page for further information on how you can contribute.
+check our [GuideToContributing](https://github.com/eeshannarula29/structlinks/blob/main/CONTRIBUTING.md) page for further information on how you can contribute.
 
 # Learn Github
 These are some resourses you can use to learn the basics of Github. You can always come to the [Discussion board](https://github.com/eeshannarula29/NetLinks/discussions) to discuss the concepts you lernt or have problems with.
@@ -49,7 +49,7 @@ These are some resourses you can use to learn the basics of Github. You can alwa
 - [Guide to Contributing](https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/)
 
 # Discussion Board
-You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/NetLinks/discussions)
+You can clarify all of your queries about github nand collborating on the [Discussion Board](https://github.com/eeshannarula29/structlinks/discussions)
 
 # References
 
