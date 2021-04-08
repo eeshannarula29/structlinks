@@ -162,7 +162,7 @@ print(graph.is_connected)  # check if all vertices in the graph are connected to
 ```
 
 ## Path Finding
-All the algorithms for finding the shortest path are located in the [`searching_algorithms` module](https://eeshannarula29.github.io/structlinks/searching),
+All the algorithms for finding the shortest path are located in the `searching_algorithms` [module](https://eeshannarula29.github.io/structlinks/searching),
 however one can find all the paths from a vertex to another vertex with `get_all_paths_to` function. 
 ```python
 from structlinks import Graph
