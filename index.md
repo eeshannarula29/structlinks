@@ -2,7 +2,7 @@
 
 Easily Access and visualize different Data structures including Linked lists, Doubly Linked lists, Trees, Binary trees, Graphs, Stacks, and Queues.
 
-I should also mention that much of the Basic data class structure is take from the
+I should also mention that much of the Basic data class structure is taken from the
 University of Toronto's CSC111 course. I and other collaborators are students at
 University of Toronto, and currently taking CSC111.
 
