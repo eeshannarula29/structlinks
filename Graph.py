@@ -149,13 +149,13 @@ class _VertexView:
     def __repr__(self) -> str:
         """Return string representation of vertex"""
 
-        string_so_far = '{ \n'
+        string_so_far = 'NeighboursView({ \n'
 
         for neighbour in self._vertex.neighbours:
             string_so_far += \
                 '  {' + f'{neighbour}: {self._vertex.neighbours[neighbour]["attributes"]}' + '}, \n'
 
-        return string_so_far + '}'
+        return string_so_far + '})'
 
     def __setitem__(self, other: Any, properties: dict) -> None:
         """Set a property of the edge between self and other
@@ -564,3 +564,14 @@ class Graph:
         string_representation += '}'
 
         return string_representation
+
+    def __repr__(self) -> str:
+        """Return a string representation of the graph"""
+        string_representation = '{ \n'
+
+        for item in self.vertices:
+            string_representation += f'{item}: {self[item].get_neighbours()} \n'
+
+        string_representation += '}'
+
+        return 'Graph(' + string_representation + ')'

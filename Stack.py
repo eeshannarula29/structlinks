@@ -98,6 +98,9 @@ class Stack:
 
         return string_so_far
 
+    def __repr__(self) -> str:
+        return f'Stack({self.items})'
+
 
 class EmptyStackError(Exception):
     def __str__(self) -> str:

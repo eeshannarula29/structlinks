@@ -126,26 +126,10 @@ class Queue:
         print(string_so_far)
 
     def __str__(self) -> str:
+        return '[' + ' -> '.join([str(element) for element in self._items]) + ']'
 
-        string_so_far = ''
-
-        temp = ''
-
-        items = self._items.to_list()
-
-        for index, item in enumerate(items):
-            if index < len(items) - 1:
-                temp += f' {item} ->'
-            else:
-                temp += f' {item}'
-
-        string_so_far += 'Entry ' + '-' * len(temp) + '> Exit \n'
-
-        string_so_far += '     ' + temp + '\n'
-
-        string_so_far += '------' + '-' * len(temp) + '------'
-
-        return string_so_far
+    def __repr__(self) -> str:
+        return f'Queue({self.__str__()})'
 
 
 class EmptyQueueError(Exception):

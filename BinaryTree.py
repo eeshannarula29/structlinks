@@ -160,6 +160,9 @@ class BinarySearchTree:
         """
         return self.display_branched()
 
+    def __repr__(self) -> str:
+        return 'BinarySearchTree( \n' + self.display_branched() + ')'
+
     def display(self, indented: Optional[bool] = False):
         """Print a string representation of this BST"""
         if indented:
