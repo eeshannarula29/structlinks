@@ -131,6 +131,9 @@ class LinkedList:
         """
         return '[' + ' -> '.join([str(element) for element in self]) + ']'
 
+    def __repr__(self) -> str:
+        return f'LinkedList({self.__str__()})'
+
     def insert(self, i: int, item: Any) -> None:
         """Insert the given item at index i in this list.
         """
