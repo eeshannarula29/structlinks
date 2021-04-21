@@ -564,3 +564,14 @@ class Graph:
         string_representation += '}'
 
         return string_representation
+
+    def __repr__(self) -> str:
+        """Return a string representation of the graph"""
+        string_representation = '{ \n'
+
+        for item in self.vertices:
+            string_representation += f'{item}: {self[item].get_neighbours()} \n'
+
+        string_representation += '}'
+
+        return 'Graph(' + string_representation + ')'
