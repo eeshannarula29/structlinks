@@ -18,9 +18,7 @@ queue_with_list = Queue([1, 2, 3])
 
 print(queue)
 # Output:
-# Entry ------------> Exit 
-#       1 -> 2 -> 3
-# ------------------------
+# [1 -> 2 -> 3]
 ```
 
 ## Initialize a Priority Queue
@@ -33,9 +31,7 @@ queue = Queue(['hi', 'hello', 'hey'], metric = priority_func)
 
 print(queue)
 # Output:
-# Entry -------------------> Exit 
-#       hi -> hey -> hello
-# -------------------------------
+# [hi -> hey -> hello]
 ```
 
 ## Initialize Queue / Priority Queue with Limit
@@ -115,17 +111,13 @@ queue = Queue([100, 200, 300])
 
 print(queue)
 # Output:
-# Entry ------------------> Exit 
-#       100 -> 200 -> 300
-# ------------------------------
+# [100 -> 200 -> 300]
 
 queue.enqueue(50)  # <--- push 50 into the queue
 
 print(queue)
 # Output:
-# Entry ------------------------> Exit 
-#       50 -> 100 -> 200 -> 300
-# ------------------------------------
+# [50 -> 100 -> 200 -> 300]
 ```
 
 ## Dequeue / Pop Elements
@@ -139,9 +131,7 @@ queue = Queue([100, 200, 300])
 
 print(queue)
 # Output:
-# Entry ------------------> Exit 
-#       100 -> 200 -> 300
-# ------------------------------
+# [100 -> 200 -> 300]
 
 element = queue.dequeue()  # <--- pop element
 
@@ -151,9 +141,7 @@ print(element)
 
 print(queue)
 # Output:
-# Entry -----------> Exit 
-#       100 -> 200
-# -----------------------
+# [100 -> 200]
 ```
 
 ## Extend Queue
@@ -167,9 +155,7 @@ q2.extend(q1)  # <--- Extend q2 by q1
 
 print(q2)
 # Output:
-# Entry ---------------------------------------> Exit 
-#       100 -> 200 -> 300 -> 400 -> 500 -> 600
-# ---------------------------------------------------
+# [100 -> 200 -> 300 -> 400 -> 500 -> 600]
 ```
 
 ## Map a Queue
@@ -187,9 +173,7 @@ queue.map(mapping_function)
 
 print(queue)
 # Output:
-# Entry ------------> Exit 
-#       1 -> 4 -> 9
-# ------------------------
+# [1 -> 4 -> 9]
 ```
 
 ## Printing Custom Queues
