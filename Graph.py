@@ -129,6 +129,16 @@ class _Vertex:
         current_path.pop()
         visited.remove(self.item)
 
+    def update_attributes(self, other) -> None:
+        """update the attributes of the edge"""
+        if other in self.neighbours:
+
+            other_vertex = self.neighbours[other]['item']
+
+            attributes = other_vertex.neighbours[self.item]['attributes']
+
+            self.neighbours[other]['attributes'].update(attributes)
+
 
 class _VertexView:
     """Used to get/view a vertex"""
@@ -165,6 +175,11 @@ class _VertexView:
         """Return all the attributes of edge between self and other"""
         if other not in self._vertex.neighbours:
             return {}
+
+        other_vertex = self._vertex.neighbours[other]['item']
+
+        self._vertex.update_attributes(other)
+        other_vertex.update_attributes(self._vertex.item)
 
         return self._vertex.neighbours[other]['attributes']
 
