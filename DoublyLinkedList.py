@@ -340,6 +340,9 @@ class DoublyLinkedList:
         """
         return '[' + ' <--> '.join([str(element) for element in self]) + ']'
 
+    def __repr__(self) -> str:
+        return f'DoubleLinkedList({self.__str__()})'
+
     def count(self, item: Any) -> int:
         """Return the number of times the given item occurs in this list.
         """
