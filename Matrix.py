@@ -10,7 +10,7 @@ class Matrix:
 
     Instance Attributes:
     - shape: shape of the matrix
-    
+
     Private Instance Attributes:
     - _row_count: The number of rows
     - _col_count: The number of columns
@@ -57,6 +57,11 @@ class Matrix:
     def is_invertible(self) -> bool:
         """Return whether the current matrix is invertible"""
         return self.determinant() != 0
+
+    @property
+    def is_vector(self) -> bool:
+        """Return whether self is a vector"""
+        return self._row_count == 1 or self._col_count == 1
 
     @staticmethod
     def zeros(shape: tuple[int, int]) -> Matrix:
