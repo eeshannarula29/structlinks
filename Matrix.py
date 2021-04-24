@@ -9,11 +9,13 @@ class Matrix:
     """A matrix
 
     Instance Attributes:
-        - row_count: The number of rows
-        - col_count: The number of columns 
+    - shape: shape of the matrix
+    
+    Private Instance Attributes:
+    - _row_count: The number of rows
+    - _col_count: The number of columns
+    - _matrix: A 2-D list of integers or floats
     """
-    # Private Instance Attributes:
-    #       - _matrix: A 2-D list of integers or floats
     _matrix: list[list[Union[int, float]]]
     _row_count: int
     _col_count: int
@@ -103,6 +105,9 @@ class Matrix:
             - self.row_count == b.row_count
             - self.col_count == b.col_count
         """
+        if self.shape != b.shape:
+            raise ShapeError
+
         sum_matrix = Matrix.zeros((self._row_count, self._col_count))
         for i in range(self._row_count):
             for j in range(self._col_count):
@@ -118,6 +123,9 @@ class Matrix:
             - 0 <= row < self.row_count
             - 0 <= col < self.col_count 
         """
+        if not(0 <= row < self._row_count and 0 <= col < self._col_count):
+            raise RowColOutOfBound
+
         # create a new array
         copy_mat = self.to_list()
         # remove the row
@@ -134,6 +142,9 @@ class Matrix:
         Preconditions:
             - self.row_count == self.col_count
         """
+        if not self.is_square:
+            raise NotSquareMatrix
+
         if self._row_count == 0 and self._col_count == 0:
             return 1
         elif self._row_count == 1 and self._col_count == 1:
@@ -143,3 +154,21 @@ class Matrix:
             for j in range(self._col_count):
                 determinant += self[0][j] * ((-1) ** j) * self.minor(0, j).determinant()
             return determinant
+
+
+class NotSquareMatrix(Exception):
+    """Error for when a non square matrix is passed"""
+    def __str__(self) -> str:
+        return "The matrix needs to be a square matrix"
+
+
+class RowColOutOfBound(Exception):
+    """Error for when the row or col index is out of bound"""
+    def __str__(self) -> str:
+        return "Either or Both the Row or Col index are out of bound"
+
+
+class ShapeError(Exception):
+    """Error for when the shape of the two matrices is different"""
+    def __str__(self) -> str:
+        return "The shape of the two matrices needs to be the same"
