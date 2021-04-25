@@ -119,7 +119,35 @@ class Matrix:
                 # Add the corresponding entries for both matrices
                 sum_matrix[i][j] = self[i][j] + b[i][j]
         return sum_matrix
-    
+
+    def multiply_matrix(self, other: Matrix) -> Matrix:
+        """Matrix multiply self with other.
+        This operation does not mutate the original matrix"""
+        # check if self and other can be multiplied
+        if self.shape[1] != other.shape[0]:
+            raise TypeError(f'Can not multiply matrices of {self.shape} and {other.shape}')
+        
+        result = Matrix.zeros((self.shape[0], other.shape[1]))
+        # iterate through rows of self
+        for i in range(self._row_count):
+            # iterate through columns of other
+            for j in range(other.shape[1]):
+                # iterate through rows of outer
+                for k in range(other.shape[0]):
+                    result[i][j] += self[i][k] * other[k][j]
+
+        return result
+
+    def transpose(self) -> Matrix:
+        """Return transposed matrix of self"""
+        new_matrix = Matrix.zeros((self.shape[1], self.shape[0]))
+
+        for i in range(self._row_count):
+            for j in range(self._col_count):
+                new_matrix[j][i] = copy.deepcopy(self[i][j])
+
+        return new_matrix
+
     def minor(self, row: int, col: int) -> Matrix:
         """Return the minor of the matrix with the given row and
         col removed. This operation does not mutate the original matrix
