@@ -102,7 +102,7 @@ class Matrix:
         """
         return self.map(lambda x: x * k)
     
-    def add_matrix(self, b: Matrix) -> Matrix:
+    def add_matrix(self, other: Matrix) -> Matrix:
         """Add the current matrix and matrix b to produce a
         new matrix. This operation does not mutate either matrix
 
@@ -110,14 +110,14 @@ class Matrix:
             - self.row_count == b.row_count
             - self.col_count == b.col_count
         """
-        if self.shape != b.shape:
+        if self.shape != other.shape:
             raise ShapeError
 
         sum_matrix = Matrix.zeros((self._row_count, self._col_count))
         for i in range(self._row_count):
             for j in range(self._col_count):
                 # Add the corresponding entries for both matrices
-                sum_matrix[i][j] = self[i][j] + b[i][j]
+                sum_matrix[i][j] = self[i][j] + other[i][j]
         return sum_matrix
 
     def multiply_matrix(self, other: Matrix) -> Matrix:
