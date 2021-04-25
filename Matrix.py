@@ -148,6 +148,17 @@ class Matrix:
 
         return new_matrix
 
+    def dot_multiply(self, other: Matrix) -> Matrix:
+        """Return the dot product of two matrices
+
+        Precondition:
+        - self.shape == other.shape
+        """
+        if self.shape != other.shape:
+            raise ShapeError
+
+        return self.multiply_matrix(other.transpose())
+
     def minor(self, row: int, col: int) -> Matrix:
         """Return the minor of the matrix with the given row and
         col removed. This operation does not mutate the original matrix
