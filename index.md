@@ -20,6 +20,7 @@ $ pip install structlinks
 - [Doubly Linked Lists](https://eeshannarula29.github.io/structlinks/doubly_linked_lists)
 - [Stacks](https://eeshannarula29.github.io/structlinks/stacks)
 - [Queues](https://eeshannarula29.github.io/structlinks/queues)
+- [Matrix](https://eeshannarula29.github.io/structlinks/matrix)
 
 ## Sorting Algorithms
 
