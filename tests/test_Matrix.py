@@ -1,6 +1,6 @@
 """This file contains tests for the Matrix library"""
 
-from Matrix import Matrix
+from structlinks.Matrix import Matrix
 
 
 class TestMatrix:
