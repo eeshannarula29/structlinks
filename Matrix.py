@@ -56,7 +56,9 @@ class Matrix:
     @property
     def is_invertible(self) -> bool:
         """Return whether the current matrix is invertible"""
-        return self.determinant() != 0
+        if self.is_square:
+            return self.determinant() != 0
+        return False
 
     @property
     def is_vector(self) -> bool:
