@@ -201,6 +201,33 @@ class Matrix:
                 determinant += self[0][j] * ((-1) ** j) * self.minor(0, j).determinant()
             return determinant
 
+    def cofactor(self) -> Matrix:
+        """Return the cofactor matrix of self"""
+        if not self.is_square:
+            raise NotSquareMatrix
+
+        new_matrix = Matrix.zeros(self.shape)
+
+        for i in range(self._row_count):
+            for j in range(self._col_count):
+                new_matrix[i][j] = ((-1) ** (i + j)) * self.minor(i, j).determinant()
+
+        return new_matrix
+
+    def adjacent(self) -> Matrix:
+        """Return the adj matrix of self"""
+        if not self.is_square:
+            raise NotSquareMatrix
+
+        return self.cofactor().transpose()
+
+    def inverse(self) -> Matrix:
+        """Return inverse of self"""
+        if not self.is_invertible:
+            raise InverseDoesNotExists
+
+        return self.adjacent().multiply_scalar(1 / self.determinant())
+
 
 class NotSquareMatrix(Exception):
     """Error for when a non square matrix is passed"""
@@ -218,3 +245,9 @@ class ShapeError(Exception):
     """Error for when the shape of the two matrices is different"""
     def __str__(self) -> str:
         return "The shape of the two matrices needs to be the same"
+
+
+class InverseDoesNotExists(Exception):
+    """Error for when inverse does not exists"""
+    def __str__(self) -> str:
+        return "The matrix is not invertible"
