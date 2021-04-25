@@ -217,3 +217,18 @@ det = matrix.determinant()
 print(det)
 # Output: 0
 ```
+
+## Inverse 
+```python
+from structlinks import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+inverse = matrix.inverse()
+
+print(inverse)
+# Output:
+#[[1.0, -0.5, -1.0]
+# [1.0, -1.0, -1.0]
+# [3.0, -2.5, -4.0]]
+```
