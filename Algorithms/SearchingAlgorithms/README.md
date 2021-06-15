@@ -112,7 +112,7 @@ graph.add_edges([(0, 1, {'weight': 4}),
 
 ##### This is how the graph looks:
 
-<img src="Fig-11.jpg" class="img-responsive" alt="">
+![Graph](https://github.com/eeshannarula29/structlinks/blob/gh-pages/Fig-11.jpg)
 
 #### Dijkstra's Search Algorithm For Single Path
 
