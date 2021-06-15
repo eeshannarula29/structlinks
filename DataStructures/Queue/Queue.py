@@ -5,8 +5,8 @@ This implementation of Queue is done on doubly linked lists.
 """
 from __future__ import annotations
 
-from structlinks.DoublyLinkedList import *
-from structlinks.SortingAlgorithms import quicksort
+from structlinks.DataStructures.DoublyLinkedList.DoublyLinkedList import *
+from structlinks.Algorithms.SortingAlgorithms import quicksort
 
 from typing import *
 
