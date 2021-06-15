@@ -1,10 +1,10 @@
-from structlinks.LinkedList import *
-from structlinks.DoublyLinkedList import *
-from structlinks.Graph import *
-from structlinks.Matrix import *
-from structlinks.Stack import *
-from structlinks.Queue import *
-import structlinks.SortingAlgorithms as sorting_algorithms
-import structlinks.SearchingAlgorithms as searching_algorithms
+from structlinks.DataStructures.LinkedList.LinkedList import *
+from structlinks.DataStructures.DoublyLinkedList.DoublyLinkedList import *
+from structlinks.DataStructures.BinaryTree.BinaryTree import *
+from structlinks.DataStructures.Graph.Graph import *
+from structlinks.DataStructures.Matrix.Matrix import *
+from structlinks.DataStructures.Queue.Queue import *
+from structlinks.DataStructures.Stack.Stack import * 
 
-
+import structlinks.Algorithms.SearchingAlgorithms as searching_algorithms
+import structlinks.Algorithms.SortingAlgorithms as sorting_algorithms
