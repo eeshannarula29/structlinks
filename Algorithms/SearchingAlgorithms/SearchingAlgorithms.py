@@ -11,11 +11,11 @@ from typing import Any, Union, Optional
 
 import math
 
-from structlinks.Graph import Graph
-from structlinks.Queue import Queue
-from structlinks.Stack import Stack
-from structlinks.LinkedList import LinkedList
-from structlinks.DoublyLinkedList import DoublyLinkedList
+from structlinks.DataStructures.LinkedList.LinkedList import LinkedList
+from structlinks.DataStructures.DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
+from structlinks.DataStructures.Graph.Graph import Graph
+from structlinks.DataStructures.Queue.Queue import *
+from structlinks.DataStructures.Stack.Stack import Stack
 
 
 def linear_search(lst: Union[list, LinkedList, DoublyLinkedList], item: Any) -> bool:
