@@ -14,7 +14,7 @@ import math
 from structlinks.DataStructures.LinkedList.LinkedList import LinkedList
 from structlinks.DataStructures.DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
 from structlinks.DataStructures.Graph.Graph import Graph
-from structlinks.DataStructures.Queue.Queue import Queue
+from structlinks.DataStructures.Queue.Queue import *
 from structlinks.DataStructures.Stack.Stack import Stack
 
 

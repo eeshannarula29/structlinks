@@ -3,7 +3,7 @@
 ## Initialize a Normal Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # initialize empty queue
 queue = Queue()
@@ -19,7 +19,7 @@ print(queue)
 ## Initialize a Priority Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 priority_func = lambda x: len(x)
 
@@ -36,7 +36,7 @@ Add a limit to the queue to limit the number of elements in a queue, This can be
 attribute while initializing a queue.
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 queue = Queue(['hi', 'hello', 'hey'], limit = 5)
 ```
@@ -48,7 +48,7 @@ Queue and Priority Queue are interchangeable and can be converted from one to an
 ### Queue --> Priority Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue
 queue = Queue(['hi', 'hello', 'hey'])
@@ -63,7 +63,7 @@ queue.change_metric(priority_func)
 ### Priority Queue --> Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # define a priority function
 priority_func = lambda x: len(x)
@@ -78,7 +78,7 @@ queue.change_metric(None)
 ## Change Limit
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue with limit
 queue = Queue(['hi', 'hello', 'hey'], limit = 3)
@@ -91,7 +91,7 @@ queue.change_limit(None)  # <---- removes the limit
 ## Check for Empty / Filled Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue with limit
 queue = Queue(['hi', 'hello', 'hey'], limit = 3)
@@ -111,7 +111,7 @@ The function used to enqueue/push element from queue, takes constant time. If th
 the `QueueLimitReachedError` will be raised.
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue
 queue = Queue([100, 200, 300])
@@ -133,7 +133,7 @@ The function used to Dequeue/Pop element, takes constant time. If the queue is e
 the `EmptyQueueError` will be raised.
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue
 queue = Queue([100, 200, 300])
@@ -156,7 +156,7 @@ print(queue)
 ## Extend Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 q1 = Queue([100, 200, 300])
 q2 = Queue([400, 500, 600])
@@ -171,7 +171,7 @@ print(q2)
 ## Map a Queue
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 
 # Initialize a queue
 queue = Queue([1, 2, 3])
@@ -192,7 +192,7 @@ print(queue)
 Queues can be printed to get specific properties of a elements in the queue.
 
 ```python
-from structlinks import Queue
+from structlinks.structures import Queue
 from dataclasses import dataclass
 
 @dataclass

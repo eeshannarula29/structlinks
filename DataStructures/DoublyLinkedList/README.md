@@ -7,7 +7,7 @@ and optionally pass in a list object witch would contain the initial list
 items.
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 # create an empty linked list
 lst = DoublyLinkedList()
@@ -21,7 +21,7 @@ The idea for all of the basic operations is similar to that of Linked lists, whi
 from the University of Toronto's CSC111 course.
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -83,7 +83,7 @@ lst4 = lst.copy()  # lst4 is a copy of lst
 ### Inverting a Doubly Linked List
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -101,7 +101,7 @@ print(lst)
 ### Mapping functions to a Doubly Linked List
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -116,7 +116,7 @@ print(new_lst)
 ### Inbuilt Mapping functions
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1.1, 10.5, -3.7, 5.2])
 

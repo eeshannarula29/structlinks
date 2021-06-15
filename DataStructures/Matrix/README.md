@@ -3,7 +3,7 @@
 ## Initialise Matrix
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -17,7 +17,7 @@ print(matrix)
 ## Shape of the Matrix
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -29,7 +29,7 @@ print(matrix.shape)
 ## Get/Set Items
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -51,7 +51,7 @@ print(matrix)
 ## Other Properties
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -71,7 +71,7 @@ print(matrix.is_invertible)
 ## Add Constant
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -87,7 +87,7 @@ print(new_matrix)
 ## Multiply Constant
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -103,7 +103,7 @@ print(new_matrix)
 ## Map Function
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -119,7 +119,7 @@ print(new_matrix)
 ## Create Zero, One, and Identity Matrix
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 zeros = Matrix.zeros(shape = (2, 1))
 
@@ -145,7 +145,7 @@ print(indentity)
 ## Add Matrices
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 m1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 m2 = Matrix([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
@@ -162,7 +162,7 @@ print(m3)
 ## Matrix Multiplication (Cross Product)
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 m1 = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 m2 = Matrix([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
@@ -179,7 +179,7 @@ print(m3)
 ## Dot Product
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 m1 = Matrix([[1, 2, 3]])
 m2 = Matrix([[4, 5, 6]])
@@ -194,7 +194,7 @@ print(m3)
 ## Transpose Matrix
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -216,7 +216,7 @@ print(transpose)
 ## Determinant
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
@@ -229,7 +229,7 @@ print(det)
 ## Inverse
 
 ```python
-from structlinks import Matrix
+from structlinks.structures import Matrix
 
 matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
 

@@ -6,7 +6,7 @@ This implementation of Queue is done on doubly linked lists.
 from __future__ import annotations
 
 from structlinks.DataStructures.DoublyLinkedList.DoublyLinkedList import *
-from structlinks.Algorithms.SortingAlgorithms import quicksort
+from structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms import *
 
 from typing import *
 

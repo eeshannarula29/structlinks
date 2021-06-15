@@ -1,0 +1,2 @@
+import structlinks.Algorithms.SearchingAlgorithms.SearchingAlgorithms as searching_algorithms
+import structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms as sorting_algorithms
