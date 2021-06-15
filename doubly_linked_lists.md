@@ -6,12 +6,13 @@ filename: doubly_linked_lists
 # DoublyLinkedLists
 
 ## Initializing a Doubly Linked list
+
 You can initialize a Doubly linked list by simply creating a Doubly linked list object
 and optionally pass in a list object witch would contain the initial list
 items.
 
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 # create an empty linked list
 lst = DoublyLinkedList()
@@ -20,10 +21,12 @@ lst = DoublyLinkedList([1, 10, -3, 5])
 ```
 
 ## Basic Operations
+
 The idea for all of the basic operations is similar to that of Linked lists, which were taken
 from the University of Toronto's CSC111 course.
+
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -83,8 +86,9 @@ lst4 = lst.copy()  # lst4 is a copy of lst
 ## Additional Operations
 
 ### Inverting a Doubly Linked List
+
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -100,8 +104,9 @@ print(lst)
 ```
 
 ### Mapping functions to a Doubly Linked List
+
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1, 10, 3, 5])
 
@@ -114,8 +119,9 @@ print(new_lst)
 ```
 
 ### Inbuilt Mapping functions
+
 ```python
-from structlinks import DoublyLinkedList
+from structlinks.structures import DoublyLinkedList
 
 lst = DoublyLinkedList([1.1, 10.5, -3.7, 5.2])
 
