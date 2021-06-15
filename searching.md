@@ -3,17 +3,16 @@ title: searching
 filename: searching
 --- 
 
-# Searching and Path Finding Algorithms 
-
+# Searching and Path Finding Algorithms
 
 ## Searching Lists
 
 The list seaching algorithms can be used with `Lists`, `LinkedLists`, and `DoublyLinkedLists`
 
 ### Linear Search
- 
+
 ```python
-from structlinks.searching_algorithms import linear_search
+from structlinks.algorithms.searching_algorithms import linear_search
 
 # initalize a list
 lst = [1, 100, 4, -1, 5]
@@ -30,7 +29,7 @@ print(linear_search(lst, 0))
 Note that for binary search the list to be searched , should be `sorted`
 
 ```python
-from structlinks.searching_algorithms import binary_search
+from structlinks.algorithms.searching_algorithms import binary_search
 
 # initalize a sorted list
 lst = [-1, 1, 4, 5, 100]
@@ -47,9 +46,10 @@ print(binary_search(lst, 0))
 ### Algorithms For Un-Weighted Graphs
 
 #### Breadth First Search
+
 ```python
-from structlinks import Graph
-from structlinks.searching_algorithms import breadth_first_search
+from structlinks.structures import Graph
+from structlinks.algorithms.searching_algorithms import breadth_first_search
 
 graph = Graph()
 
@@ -64,13 +64,14 @@ print(path)
 non_existing_path = breadth_first_search(graph, origin = 1, target = 7)  # <-- 1 and 7 are not connected
 
 print(non_existing_path)
-# Output: None  
+# Output: None
 ```
 
 #### Depth First Search
+
 ```python
-from structlinks import Graph
-from structlinks.searching_algorithms import depth_first_search
+from structlinks.structures import Graph
+from structlinks.algorithms.searching_algorithms import depth_first_search
 
 graph = Graph()
 
@@ -85,13 +86,13 @@ print(path)
 non_existing_path = depth_first_search(graph, origin = 1, target = 7)  # <-- 1 and 7 are not connected
 
 print(non_existing_path)
-# Output: None  
+# Output: None
 ```
 
 ### Algorithms For Weighted Graphs
 
 ```python
-from structlinks import Graph
+from structlinks.structures import Graph
 
 graph = Graph()
 
@@ -111,17 +112,19 @@ graph.add_edges([(0, 1, {'weight': 4}),
                  (8, 2, {'weight': 2}),
                  (2, 5, {'weight': 4}),
                  (3, 5, {'weight': 14})])
-  
+
 ```
+
 ##### This is how the graph looks:
 
 <img src="Fig-11.jpg" class="img-responsive" alt="">
 
 #### Dijkstra's Search Algorithm For Single Path
+
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to a specific `target`
 
-```python 
-from structlinks.searching_algorithms import dijkstra_search_target
+```python
+from structlinks.algorithms.searching_algorithms import dijkstra_search_target
 
 path = dijkstra_search_target(graph, origin = 0, target: 4, metric: 'weight')
 
@@ -129,16 +132,17 @@ print(path)
 # Output: [(0, 7), (7, 6), (6, 5), (5, 4)]  # 0 -> 7 -> 6 -> 5 -> 4
 ```
 
-#### Dijkstra's Search Algorithm 
+#### Dijkstra's Search Algorithm
+
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to all the other vertices.
 
-```python 
-from structlinks.searching_algorithms import dijkstra_search_target
+```python
+from structlinks.algorithms.searching_algorithms import dijkstra_search_target
 
-paths = dijkstra_search_all(graph, origin = 0, metric: 'weight') 
+paths = dijkstra_search_all(graph, origin = 0, metric: 'weight')
 
 print(paths)
-# Output: 
+# Output:
 {
   1: [(0, 1)],
   2: [(0, 1), (1, 2)],
