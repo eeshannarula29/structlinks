@@ -12,7 +12,7 @@ The list seaching algorithms can be used with `Lists`, `LinkedLists`, and `Doubl
 ### Linear Search
 
 ```python
-from structlinks.algorithms.searching_algorithms import linear_search
+from structlinks.Algorithms.SearchingAlgorithms import linear_search
 
 # initalize a list
 lst = [1, 100, 4, -1, 5]
@@ -29,7 +29,7 @@ print(linear_search(lst, 0))
 Note that for binary search the list to be searched , should be `sorted`
 
 ```python
-from structlinks.algorithms.searching_algorithms import binary_search
+from structlinks.Algorithms.SearchingAlgorithms import binary_search
 
 # initalize a sorted list
 lst = [-1, 1, 4, 5, 100]
@@ -48,8 +48,8 @@ print(binary_search(lst, 0))
 #### Breadth First Search
 
 ```python
-from structlinks.structures import Graph
-from structlinks.algorithms.searching_algorithms import breadth_first_search
+from structlinks.DataStructures import Graph
+from structlinks.Algorithms.SearchingAlgorithms import breadth_first_search
 
 graph = Graph()
 
@@ -70,8 +70,8 @@ print(non_existing_path)
 #### Depth First Search
 
 ```python
-from structlinks.structures import Graph
-from structlinks.algorithms.searching_algorithms import depth_first_search
+from structlinks.DataStructures import Graph
+from structlinks.Algorithms.SearchingAlgorithms import depth_first_search
 
 graph = Graph()
 
@@ -92,7 +92,7 @@ print(non_existing_path)
 ### Algorithms For Weighted Graphs
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -124,7 +124,7 @@ graph.add_edges([(0, 1, {'weight': 4}),
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to a specific `target`
 
 ```python
-from structlinks.algorithms.searching_algorithms import dijkstra_search_target
+from structlinks.Algorithms.SearchingAlgorithms import dijkstra_search_target
 
 path = dijkstra_search_target(graph, origin = 0, target: 4, metric: 'weight')
 
@@ -137,7 +137,7 @@ print(path)
 This is Dijkstra's Search Algorithm for getting a path from an `origin` to all the other vertices.
 
 ```python
-from structlinks.algorithms.searching_algorithms import dijkstra_search_target
+from structlinks.Algorithms.SearchingAlgorithms import dijkstra_search_target
 
 paths = dijkstra_search_all(graph, origin = 0, metric: 'weight')
 
@@ -153,5 +153,4 @@ print(paths)
   7: [(0, 7)],
   8: [(0, 1), (1, 2), (2, 8)]
 }
-
 ```
