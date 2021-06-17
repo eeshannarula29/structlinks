@@ -7,7 +7,7 @@ max and min heap classes work exactly the same way so, I would only work with ma
 ### Initalization
 
 ```python
-from structlinks.structures import MaxHeap, MinHeap
+from structlinks.DataStructures import MaxHeap, MinHeap
 
 # Empty heap
 max_heap = MaxHeap()
@@ -87,7 +87,7 @@ the steps below to create a custom heap.
     greater length
 
 ```python
-from structlinks.structures import PriorityFunction
+from structlinks.DataStructures import PriorityFunction
 
 def comparing_function (compare_to, compare_from) :
     return len(compare_to) >= len(compare_from)
@@ -98,7 +98,7 @@ priority_function = PriorityFunction(comparing_function)
 -   Now, we would use the `priority_function` to create a heap
 
 ```python
-from structlinks.structures import Heap
+from structlinks.DataStructures import Heap
 
 # Empty Heap
 heap = Heap(prioritizer = priority_function)

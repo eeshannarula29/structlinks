@@ -3,7 +3,7 @@
 ## Initialize a stack
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 # initialize empty stack
 stack = Stack()
@@ -27,7 +27,7 @@ print(stack_with_list)
 ## Push Elements
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack = Stack([1, 2])
 
@@ -52,7 +52,7 @@ print(stack)
 ## Push multiple Elements
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack = Stack([1, 2])
 
@@ -79,7 +79,7 @@ print(stack)
 ## Pop Elements
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack = Stack([1, 2])
 
@@ -102,7 +102,7 @@ print(stack)
 ## Extend and Add Stacks
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack1 = Stack([1, 2])
 stack2 = Stack([3, 4])
@@ -135,7 +135,7 @@ print(stack1)
 ## Map Stack to a function
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack = Stack([1, 2])
 
@@ -167,7 +167,7 @@ print(stack)  # <---- stack did not get mutated
 ## Invert a Stack
 
 ```python
-from structlinks.structures import Stack
+from structlinks.DataStructures import Stack
 
 stack = Stack([1, 2, 3])
 

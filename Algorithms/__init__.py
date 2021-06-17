@@ -1,2 +1,2 @@
-import structlinks.Algorithms.SearchingAlgorithms.SearchingAlgorithms as searching_algorithms
-import structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms as sorting_algorithms
+from structlinks.Algorithms.SearchingAlgorithms.SearchingAlgorithms import *
+from structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms import *

@@ -3,7 +3,7 @@
 ## Initialize a Graph
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 ```
@@ -16,7 +16,7 @@ A vertex can we added simply by calling `graph.add_vertex`. The function takes i
 Additional `Attributes` of the vertex can be passed in as a dictionary.
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -37,7 +37,7 @@ add vertices with attributes the format of the tuple should be `[ ... (value, at
 contain both elements with no attributes and elements with attributes.
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -64,7 +64,7 @@ a new vertex with that value, and adds an edge. Note That if an edge already exi
 of the edge would be update if `add_edge` is called.
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -95,7 +95,7 @@ which would look like `[... (item1, item2, attributes dict) ...]`. Note that sim
 a new vertex with that value, and adds an edge.
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -171,7 +171,7 @@ All the algorithms for finding the shortest path are located in the `searching_a
 however one can find all the paths from a vertex to another vertex with `get_all_paths_to` function.
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -236,7 +236,7 @@ print(graph.edges)
 ## Get/Set the Attributes
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -283,7 +283,7 @@ graph.add_global_attributes({'weight': 1})  # add this attribute to all the vert
 ## Graph Generator Functions
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 
@@ -337,7 +337,7 @@ print(union.edges)
 ## Printing Graphs
 
 ```python
-from structlinks.structures import Graph
+from structlinks.DataStructures import Graph
 
 graph = Graph()
 

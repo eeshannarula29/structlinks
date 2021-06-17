@@ -23,7 +23,7 @@ $ pip install structlinks
 -   [Stacks](https://github.com/eeshannarula29/structlinks/tree/main/DataStructures/Stack)
 -   [Queues](https://github.com/eeshannarula29/structlinks/tree/main/DataStructures/Queue)
 -   [Matrix](https://github.com/eeshannarula29/structlinks/tree/main/DataStructures/Matrix)
--   [Heap](https://github.com/eeshannarula29/structlinks/tree/main/DataStructures/Heap)
+-   [Heaps](https://github.com/eeshannarula29/structlinks/tree/main/DataStructures/Heap)
 
 ## Sorting Algorithms
 

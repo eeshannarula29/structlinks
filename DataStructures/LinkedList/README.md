@@ -7,7 +7,7 @@ and optionally pass in a list object witch would contain the initial list
 items.
 
 ```python
-from structlinks.structures import LinkedList
+from structlinks.DataStructures import LinkedList
 
 # create an empty linked list
 lst = LinkedList()
@@ -20,7 +20,7 @@ lst = LinkedList([1, 10, -3, 5])
 All of the basic operations are taken from the University of Toronto's CSC111 course.
 
 ```python
-from structlinks.structures import LinkedList
+from structlinks.DataStructures import LinkedList
 
 lst = LinkedList([1, 10, 3, 5])
 
@@ -82,7 +82,7 @@ lst4 = lst.copy()  # lst4 is a copy of lst
 ### Inverting a Linked List
 
 ```python
-from structlinks.structures import LinkedList
+from structlinks.DataStructures import LinkedList
 
 lst = LinkedList([1, 10, 3, 5])
 
@@ -100,7 +100,7 @@ print(lst)
 ### Mapping functions to a Linked List
 
 ```python
-from structlinks.structures import LinkedList
+from structlinks.DataStructures import LinkedList
 
 lst = LinkedList([1, 10, 3, 5])
 
@@ -115,7 +115,7 @@ print(new_lst)
 ### Inbuilt Mapping functions
 
 ```python
-from structlinks.structures import LinkedList
+from structlinks.DataStructures import LinkedList
 
 lst = LinkedList([1.1, 10.5, -3.7, 5.2])
 

@@ -1,2 +1,2 @@
-import structlinks.DataStructures as structures
-import structlinks.Algorithms as algorithms
+import structlinks.DataStructures 
+import structlinks.Algorithms 

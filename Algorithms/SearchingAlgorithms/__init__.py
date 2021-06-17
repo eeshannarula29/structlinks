@@ -1,1 +1,1 @@
-import structlinks.Algorithms.SearchingAlgorithms.SearchingAlgorithms as SearchingAlgorithms
+from structlinks.Algorithms.SearchingAlgorithms.SearchingAlgorithms import *

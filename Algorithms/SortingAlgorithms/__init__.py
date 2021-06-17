@@ -1,1 +1,1 @@
-import structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms as SortingAlgorithms
+from structlinks.Algorithms.SortingAlgorithms.SortingAlgorithms import *
