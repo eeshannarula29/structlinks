@@ -21,6 +21,7 @@ $ pip install structlinks
 - [Stacks](https://eeshannarula29.github.io/structlinks/stacks)
 - [Queues](https://eeshannarula29.github.io/structlinks/queues)
 - [Matrix](https://eeshannarula29.github.io/structlinks/matrix)
+- [Heaps](https://eeshannarula29.github.io/structlinks/heaps)
 
 ## Sorting Algorithms
 
