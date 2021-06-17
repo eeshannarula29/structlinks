@@ -80,8 +80,8 @@ the steps below to create a custom heap.
 
 -   first we define the comparison function which compares two elements of the Heap. The function is
     defined as an `PriorityFunction` object. The object takes a function which is used for comparion.
-    The passed in function should contain two parameters `compare_to` and `compare_from`, and returns
-    _True_ `compare_to` should be give priority to `compare_from`.
+    The passed in function should contain two parameters `compare_to` and `compare_from`, and when it returns
+    _True_, `compare_to` should be give priority to `compare_from`.
 
     Here we would create a `PriorityFunction` to comapre two strings and give priority to the string with
     greater length
