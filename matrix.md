@@ -38,19 +38,21 @@ from structlinks.DataStructures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
-print(matrix[1][1] == 5)
+print(matrix[1, 1] == 5)
 # Output: True
 
-print(matrix[1] == [4, 5, 6])
-# Output: True
+print(matrix[1, :])
+# Output: Matrix([[4, 5, 6]])
 
-matrix[1][1] = 100
+matrix[1, 1] = 100
+
+matrix[2, 1:] = Matrix([[11, 12]])
 
 print(matrix)
 # Output:
 #[[1, 2, 3]
 # [4, 100, 6]
-# [7, 8, 9]]
+# [7, 11, 12]]
 ```
 
 ## Other Properties
@@ -196,6 +198,48 @@ print(m3)
 # [[32]]
 ```
 
+## Stack Matrices
+
+### Horizontal Stack
+
+```python
+from structlinks.DataStructures import Matrix
+
+m1 = Matrix([[1, 2],[3, 4]])
+m2 = Matrix([[5, 6], [7, 8]])
+m3 = Matrix([[9, 10], [11, 12]])
+
+m4 = Matrix.hstack([m1, m2, m3])
+
+print(m4)
+
+#Output:
+# [[1, 2, 5, 6, 9, 10]
+#  [3, 4, 7, 8, 11, 12]]
+```
+
+### Vertical Stack
+
+```python
+from structlinks.DataStructures import Matrix
+
+m1 = Matrix([[1, 2],[3, 4]])
+m2 = Matrix([[5, 6], [7, 8]])
+m3 = Matrix([[9, 10], [11, 12]])
+
+m4 = Matrix.vstack([m1, m2, m3])
+
+print(m4)
+
+#Output:
+# [[1, 2]
+#  [3, 4]
+#  [5, 6]
+#  [7, 8]
+#  [9, 10]
+#  [11, 12]]
+```
+
 ## Transpose Matrix
 
 ```python
@@ -209,9 +253,7 @@ print(matrix)
 # [4, 5, 6]
 # [7, 8, 9]]
 
-transpose = matrix.transpose()
-
-print(transpose)
+print(matrix.transpose)
 # Output:
 #[[1, 4, 7]
 # [2, 5, 8]
@@ -225,9 +267,7 @@ from structlinks.DataStructures import Matrix
 
 matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
-det = matrix.determinant()
-
-print(det)
+print(matrix.determinant)
 # Output: 0
 ```
 
@@ -238,11 +278,88 @@ from structlinks.DataStructures import Matrix
 
 matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
 
-inverse = matrix.inverse()
-
-print(inverse)
+print(matrix.inverse)
 # Output:
 #[[1.0, -0.5, -1.0]
 # [1.0, -1.0, -1.0]
 # [3.0, -2.5, -4.0]]
+```
+
+## Cofactor
+
+```python
+from structlinks.DataStructures import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+print(matrix.cofactor)
+# Output:
+# [[2, 2, 6]
+#  [-1, -2, -5]
+#  [-2, -2, -8]]
+```
+
+## Adjacent
+
+```python
+from structlinks.DataStructures import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+print(matrix.adjacent)
+# Output:
+# [[2, -1, -2]
+#  [2, -2, -2]
+#  [6, -5, -8]]
+```
+
+## Row Reduced Echolon Form (Rref)
+
+```python
+from structlinks.DataStructures import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+print(matrix.rref)
+
+# Output:
+# [[1.0, 0.0, 0.0]
+#  [-0.0, 1.0, 0.0]
+#  [-0.0, -0.0, 1.0]]
+```
+
+## Rank and Nullity
+
+```python
+from structlinks.DataStructures import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+print(matrix.rank)
+# Output: 3
+print(matrix.nullity)
+# Output: 0
+```
+
+## Linear Indipendence and Dependence
+
+```python
+from structlinks.DataStructures import Matrix
+
+matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
+
+print(matrix.lineary_independent)
+# Output: True
+
+print(matrix.lineary_dependent)
+#Output: False
+
+print(matrix.get_independent_vectors())
+# Output:
+# [Matrix([[3, 1, -1]]),
+#  Matrix([[2, -2, 0]]),
+#  Matrix([[1, 2, -1]])]
+
+print(matrix.get_dependent_vectors())
+# Output: []
 ```
