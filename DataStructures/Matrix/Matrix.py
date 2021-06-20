@@ -30,12 +30,62 @@ class Matrix:
 
         self._matrix = array
 
-    def __getitem__(self, index: int) -> list:
+    def _get_indices(self, s: slice, stop_num: int) -> list:
+        start = s.start if s.start else 0
+        end = s.stop if s.stop else stop_num
+        return list(range(start, end))
+    
+    def __getitem__(self, index) -> list:
         """ Return the row at index <index>"""
-        if self._row_count <= index:
-            raise IndexError
-        return self._matrix[index]
+        if isinstance(index, int):
+            raise ValueError("Please provide both Row and Col in the format [row (int/slice), col (int/slice)]")
+        
+        elif isinstance(index[0], int) and isinstance(index[1], int):
+            if index[0] >= self._row_count or index[1]>= self._col_count:
+                raise IndexError("either row or column is out of bound")
+            return self._matrix[index[0]][index[1]]
+        
+        else:
+            new_matrix = []
+            rows = [index[0]] if isinstance(index[0], int) else self._get_indices(index[0], self._row_count)
+            cols = [index[1]] if isinstance(index[1], int) else self._get_indices(index[1], self._col_count)
+            
+            if any(element < 0 or element >=self._row_count for element in rows):
+                if any(element < 0 or element >=self._col_count for element in self._col_count):
+                    raise IndexError("either row or column is out of bound")
+                
+            for row in rows:
+                temp = []
+                for col in cols:
+                    temp.append(self._matrix[row][col])
+                new_matrix.append(temp)
 
+            return Matrix(new_matrix)
+
+    def __setitem__(self, index, value) -> None:
+        """Set the value <value> of item at index <index> in self"""
+        if isinstance(index, int):
+            raise ValueError("Please provide both Row and Col in the format [row (int/slice), col (int/slice)]")
+        
+        elif isinstance(index[0], int) and isinstance(index[1], int):
+            if index[0] >= self._row_count or index[1]>= self._col_count:
+                raise IndexError("either row or column is out of bound")
+            self._matrix[index[0]][index[1]] = value
+        
+        elif isinstance(index[0], slice) or isinstance(index[1], slice):
+            rows = [index[0]] if isinstance(index[0], int) else self._get_indices(index[0], self._row_count)
+            cols = [index[1]] if isinstance(index[1], int) else self._get_indices(index[1], self._col_count)
+            
+            if any(element < 0 or element >=self._row_count for element in rows):
+                if any(element < 0 or element >=self._col_count for element in self._col_count):
+                    raise IndexError("either row or column is out of bound")
+                
+            for row_index, row in enumerate(rows):
+                for col_index, col in enumerate(cols):
+                    self._matrix[row][col] = value[row_index, col_index]
+        else:
+            raise ValueError("The row and the column should be of int or slice data type")    
+        
     def __str__(self) -> str:
         return '[' + '\n '.join([str(row) for row in self._matrix]) + ']'
 
@@ -57,7 +107,7 @@ class Matrix:
     def is_invertible(self) -> bool:
         """Return whether the current matrix is invertible"""
         if self.is_square:
-            return self.determinant() != 0
+            return self.determinant != 0
         return False
 
     @property
@@ -86,7 +136,7 @@ class Matrix:
 
         for i in range(self._row_count):
             for j in range(self._col_count):
-                copy_mat[i][j] = func(copy_mat[i][j])
+                copy_mat[i, j] = func(copy_mat[i, j])
 
         return copy_mat
 
@@ -119,7 +169,7 @@ class Matrix:
         for i in range(self._row_count):
             for j in range(self._col_count):
                 # Add the corresponding entries for both matrices
-                sum_matrix[i][j] = self[i][j] + other[i][j]
+                sum_matrix[i, j] = self[i, j] + other[i, j]
         return sum_matrix
 
     def multiply_matrix(self, other: Matrix) -> Matrix:
@@ -127,7 +177,7 @@ class Matrix:
         This operation does not mutate the original matrix"""
         # check if self and other can be multiplied
         if self.shape[1] != other.shape[0]:
-            raise TypeError(f'Can not multiply matrices of {self.shape} and {other.shape}')
+            raise TypeError(f'Can not multiply matrices of shape {self.shape} and {other.shape}')
         
         result = Matrix.zeros((self.shape[0], other.shape[1]))
         # iterate through rows of self
@@ -136,17 +186,18 @@ class Matrix:
             for j in range(other.shape[1]):
                 # iterate through rows of outer
                 for k in range(other.shape[0]):
-                    result[i][j] += self[i][k] * other[k][j]
+                    result[i, j] += self[i, k] * other[k, j]
 
         return result
-
+    
+    @property
     def transpose(self) -> Matrix:
         """Return transposed matrix of self"""
         new_matrix = Matrix.zeros((self.shape[1], self.shape[0]))
 
         for i in range(self._row_count):
             for j in range(self._col_count):
-                new_matrix[j][i] = copy.deepcopy(self[i][j])
+                new_matrix[j, i] = copy.deepcopy(self[i, j])
 
         return new_matrix
 
@@ -159,7 +210,7 @@ class Matrix:
         if self.shape != other.shape:
             raise ShapeError
 
-        return self.multiply_matrix(other.transpose())
+        return self.multiply_matrix(other.transpose)
 
     def minor(self, row: int, col: int) -> Matrix:
         """Return the minor of the matrix with the given row and
@@ -182,6 +233,7 @@ class Matrix:
         # return the new matrix
         return Matrix(copy_mat)
 
+    @property
     def determinant(self) -> Union[float, int]:
         """Return the determinant of the current matrix
         
@@ -189,46 +241,170 @@ class Matrix:
             - self.row_count == self.col_count
         """
         if not self.is_square:
-            raise NotSquareMatrix
+            return None
 
         if self._row_count == 0 and self._col_count == 0:
             return 1
         elif self._row_count == 1 and self._col_count == 1:
-            return self[0][0]
+            return self[0, 0]
         else:
             determinant = 0
             for j in range(self._col_count):
-                determinant += self[0][j] * ((-1) ** j) * self.minor(0, j).determinant()
+                determinant += self[0, j] * ((-1) ** j) * self.minor(0, j).determinant
             return determinant
 
+    @property
     def cofactor(self) -> Matrix:
         """Return the cofactor matrix of self"""
         if not self.is_square:
-            raise NotSquareMatrix
+            return None
 
         new_matrix = Matrix.zeros(self.shape)
 
         for i in range(self._row_count):
             for j in range(self._col_count):
-                new_matrix[i][j] = ((-1) ** (i + j)) * self.minor(i, j).determinant()
+                new_matrix[i, j] = ((-1) ** (i + j)) * self.minor(i, j).determinant
 
         return new_matrix
 
+    @property
     def adjacent(self) -> Matrix:
         """Return the adj matrix of self"""
         if not self.is_square:
-            raise NotSquareMatrix
+            return None
 
-        return self.cofactor().transpose()
+        return self.cofactor.transpose
 
+    @property
     def inverse(self) -> Matrix:
         """Return inverse of self"""
         if not self.is_invertible:
-            raise InverseDoesNotExists
+            return None
 
-        return self.adjacent().multiply_scalar(1 / self.determinant())
+        return self.adjacent.multiply_scalar(1 / self.determinant)
 
-
+    @staticmethod
+    def vstack(matrices: list[Matrix]) -> Matrix:
+        new_matrix = []
+        def_shape = None
+        
+        if len(matrices) == 0:
+            raise ValueError("the list of matrices can not be empty")
+        
+        for matrix in matrices:
+            
+            if not def_shape:
+                def_shape = matrix.shape
+                
+            if not def_shape[1] == matrix.shape[1]:
+                raise ColumnError
+            
+            for row in matrix.to_list():
+                new_matrix.append(row)
+                
+        return Matrix(new_matrix)
+    
+    @staticmethod
+    def hstack(matrices: list[Matrix]) -> Matrix:
+        new_matrix = []
+        def_shape = None
+        
+        if len(matrices) == 0:
+            raise ValueError("the list of matrices can not be empty")
+        
+        for matrix in matrices:
+            
+            if not def_shape:
+                def_shape = matrix.shape
+                new_matrix = matrix.to_list()
+            
+            elif not def_shape[0] == matrix.shape[0]:
+                raise RowError
+            
+            else:
+                for row_index in range(def_shape[0]):
+                    mat_row = matrix._matrix[row_index]
+                    new_matrix[row_index].extend(mat_row) 
+                                
+        return Matrix(new_matrix)
+    
+    @staticmethod
+    def _ToReducedRowEchelonForm( M):
+        if not M: return
+        lead = 0
+        rowCount = len(M)
+        columnCount = len(M[0])
+        for r in range(rowCount):
+            if lead >= columnCount:
+                return
+            i = r
+            while M[i][lead] == 0:
+                i += 1
+                if i == rowCount:
+                    i = r
+                    lead += 1
+                    if columnCount == lead:
+                        return
+            M[i],M[r] = M[r],M[i]
+            lv = M[r][lead]
+            M[r] = [ mrx / float(lv) for mrx in M[r]]
+            for i in range(rowCount):
+                if i != r:
+                    lv = M[i][lead]
+                    M[i] = [ iv - lv*rv for rv,iv in zip(M[r],M[i])]
+            lead += 1 
+               
+    @property
+    def rref(self) -> Matrix:
+        """Return the rref form of self
+        
+        source: https://rosettacode.org/wiki/Reduced_row_echelon_form#Python
+        """
+        M = self.to_list()
+        Matrix._ToReducedRowEchelonForm(M)
+        return Matrix(M)
+        
+    @property
+    def rank(self) -> int:
+        rank = 0
+        
+        for row in self.rref._matrix:
+            if any(element != 0 for element in row):
+                rank += 1
+        
+        return rank   
+    
+    @property
+    def nullity(self) -> int:
+        return self._col_count - self.rank
+    
+    @property
+    def lineary_independent(self) -> bool:
+         return self.nullity == 0    
+    
+    @property
+    def lineary_dependent(self) -> bool:
+         return self.nullity != 0
+    
+    def get_indipendent_vectors(self) -> list[Matrix]:
+            vectors = []
+            
+            for index, row in enumerate(self.rref._matrix):
+                if any(element != 0 for element in row):
+                    vectors.append(self[index, :])
+            
+            return vectors        
+    
+    def get_dependent_vectors(self) -> list[Matrix]:
+            vectors = []
+            
+            for index, row in enumerate(self.rref._matrix):
+                if all(element == 0 for element in row):
+                    vectors.append(self[index, :])
+            
+            return vectors  
+        
+        
 class NotSquareMatrix(Exception):
     """Error for when a non square matrix is passed"""
     def __str__(self) -> str:
@@ -244,10 +420,29 @@ class RowColOutOfBound(Exception):
 class ShapeError(Exception):
     """Error for when the shape of the two matrices is different"""
     def __str__(self) -> str:
-        return "The shape of the two matrices needs to be the same"
+        return "The shape of the matrices needs to be the same"
 
 
 class InverseDoesNotExists(Exception):
     """Error for when inverse does not exists"""
     def __str__(self) -> str:
         return "The matrix is not invertible"
+
+class RowError(Exception):
+    """Error for when the number of rows are not the same"""
+    def __str__(self) -> str:
+        return "The number of rows of the matrices need to be the same"
+
+class ColumnError(Exception):
+    """Error for when the number of columns are not the same"""
+    def __str__(self) -> str:
+        return "The number of columns of the matrices need to be the same"    
+
+
+if __name__ == '__main__':
+    m = Matrix([
+   [1, 2], [2, 4]])
+    print(m)
+    print(m.rref)
+    print(m.get_dependent_vectors())  
+    print(m[:1, :1])  
