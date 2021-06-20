@@ -437,12 +437,4 @@ class ColumnError(Exception):
     """Error for when the number of columns are not the same"""
     def __str__(self) -> str:
         return "The number of columns of the matrices need to be the same"    
-
-
-if __name__ == '__main__':
-    m = Matrix([
-   [1, 2], [2, 4]])
-    print(m)
-    print(m.rref)
-    print(m.get_dependent_vectors())  
-    print(m[:1, :1])  
+     
