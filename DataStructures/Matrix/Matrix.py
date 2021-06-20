@@ -379,11 +379,11 @@ class Matrix:
         return self._col_count - self.rank
     
     @property
-    def lineary_independent(self) -> bool:
+    def linearly_independent(self) -> bool:
          return self.nullity == 0    
     
     @property
-    def lineary_dependent(self) -> bool:
+    def linearly_dependent(self) -> bool:
          return self.nullity != 0
     
     def get_independent_vectors(self) -> list[Matrix]:

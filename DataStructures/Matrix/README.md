@@ -343,10 +343,10 @@ from structlinks.DataStructures import Matrix
 
 matrix = Matrix([[3, 1, -1], [2, -2, 0], [1, 2, -1]])
 
-print(matrix.lineary_independent)
+print(matrix.linearly_independent)
 # Output: True
 
-print(matrix.lineary_dependent)
+print(matrix.linearly_dependent)
 #Output: False
 
 print(matrix.get_independent_vectors())
