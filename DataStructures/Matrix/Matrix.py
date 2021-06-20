@@ -386,7 +386,7 @@ class Matrix:
     def lineary_dependent(self) -> bool:
          return self.nullity != 0
     
-    def get_indipendent_vectors(self) -> list[Matrix]:
+    def get_independent_vectors(self) -> list[Matrix]:
             vectors = []
             
             for index, row in enumerate(self.rref._matrix):
@@ -428,13 +428,15 @@ class InverseDoesNotExists(Exception):
     def __str__(self) -> str:
         return "The matrix is not invertible"
 
+
 class RowError(Exception):
     """Error for when the number of rows are not the same"""
     def __str__(self) -> str:
         return "The number of rows of the matrices need to be the same"
 
+
 class ColumnError(Exception):
     """Error for when the number of columns are not the same"""
     def __str__(self) -> str:
-        return "The number of columns of the matrices need to be the same"    
-     
+        return "The number of columns of the matrices need to be the same"
+       
